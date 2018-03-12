@@ -8,13 +8,16 @@ class Checkout extends Component {
                 <div className="check-out">
                     <h1>Checkout</h1>
                     <table >
-                        <tr>
-                            <th>Item</th>
-                            <th>Qty</th>
-                            <th>Prices</th>
-                            <th>Delery Detials</th>
-                            <th>Subtotal</th>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Qty</th>
+                                <th>Prices</th>
+                                <th>Delery Detials</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td className="ring-in">
                             <a href="single.html" className="at-in"><img src="images/ce.jpg" className="img-responsive" alt=""/></a>
@@ -57,6 +60,7 @@ class Checkout extends Component {
                             <td>FREE SHIPPING</td>
                             <td>$150.00</td>
                         </tr>
+                        </tbody>
                     </table>
                     <a href="#" className="to-buy">PROCEED TO BUY</a>
                     <div className="clearfix"> </div>

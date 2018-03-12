@@ -23,10 +23,10 @@ class Banner extends Component {
                     <div className="slider">
                         <div className="callbacks_container">
                             <Slider {...settings}>
-                                <div><img src="images/1.jpg" /></div>
-                                <div><img src="images/2.jpg" /></div>
-                                <div><img src="images/1.jpg" /></div>
-                                <div><img src="images/2.jpg" /></div>
+                                <div><img src="images/1.jpg" className="img-responsive" /></div>
+                                <div><img src="images/2.jpg" className="img-responsive" /></div>
+                                <div><img src="images/1.jpg" className="img-responsive" /></div>
+                                <div><img src="images/2.jpg" className="img-responsive" /></div>
                             </Slider>
                         </div>
                     </div>
