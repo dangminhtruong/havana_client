@@ -32,12 +32,12 @@ class Header extends Component {
                                 <p className="log"><NavLink to="/login" exact>Login</NavLink>
                                     <span>or</span><NavLink to="/signup" exact>Signup</NavLink></p>
                                 <div className="cart box_1">
-                                    <a href="checkout.html">
+                                    <NavLink to="/checkout" className="simpleCart_empty" exact>
                                         <h3> <div className="total">
                                             <span className="simpleCart_total"></span></div>
                                             <img src="images/cart.png" alt="" /></h3>
-                                    </a>
-                                    <p><a href="javascript:;" className="simpleCart_empty">Empty Cart</a></p>
+                                    </NavLink>
+                                    <p><NavLink to="/checkout" className="simpleCart_empty" exact>Empty Cart</NavLink></p>
 
                                 </div>
                                 <div className="clearfix"> </div>

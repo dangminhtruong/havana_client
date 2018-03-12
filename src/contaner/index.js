@@ -7,6 +7,7 @@ import Category from '../components/pages/category';
 import Details from '../components/pages/detail';
 import Login from '../components/pages/login';
 import Signup from '../components/pages/signup';
+import Checkout from '../components/pages/checkout';
 
 class Container extends Component {
     render() {
@@ -19,6 +20,7 @@ class Container extends Component {
                     <Route path="/details" exact component={Details} />
                     <Route path="/login" exact component={Login} />
                     <Route path="/signup" exact component={Signup} />
+                    <Route path="/checkout" exact component={Checkout} />
                 </Switch>
                 <Footer/>
             </div>
