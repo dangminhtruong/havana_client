@@ -26,6 +26,13 @@ class Index extends Component {
                                     <ProductItem/>
                                     <div className="clearfix"> </div>
                                 </div>
+                                <div className="content-top1">
+                                    <ProductItem/>
+                                    <ProductItem/>
+                                    <ProductItem/>
+                                    <ProductItem/>
+                                    <div className="clearfix"> </div>
+                                </div>
                             </div>
                         </div>
                     </div>
