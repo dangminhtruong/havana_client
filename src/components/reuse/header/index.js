@@ -25,7 +25,7 @@ class Header extends Component {
                             </ul>
                         </div>
                         <div className="col-sm-4 logo">
-                        <NavLink to="/index" exact><img src="images/logo.png" alt=""/></NavLink>
+                        <NavLink to="/" exact><img src="images/logo.png" alt=""/></NavLink>
 				        </div>
 
                             <div className="col-sm-4 header-left">
@@ -52,7 +52,7 @@ class Header extends Component {
                             </div>
                             <div className="col-sm-8 h_menu4">
                                 <ul className="memenu skyblue">
-                                    <li className=" grid"><NavLink to="/index" exact>Home</NavLink></li>
+                                    <li className=" grid"><NavLink to="/" exact>Home</NavLink></li>
                                     <li><a href="#">Men</a>
                                         <div className="mepanel">
                                             <div className="row">
@@ -62,14 +62,14 @@ class Header extends Component {
                                                         <ul>
                                                             <li><NavLink to="/category" exact>Shirts</NavLink></li>
                                                             <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-                                                            <li><a href="products.html">Shorts</a></li>
-                                                            <li><a href="products.html">Suits & Blazers</a></li>
-                                                            <li><a href="products.html">Formal Shirts</a></li>
-                                                            <li><a href="products.html">Sweatpants</a></li>
-                                                            <li><a href="products.html">Swimwear</a></li>
-                                                            <li><a href="products.html">Trousers & Chinos</a></li>
-                                                            <li><a href="products.html">T-Shirts</a></li>
-                                                            <li><a href="products.html">Underwear & Socks</a></li>
+                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
 
                                                         </ul>
                                                     </div>
@@ -78,16 +78,16 @@ class Header extends Component {
                                                     <div className="h_nav">
                                                         <h4>Footwear</h4>
                                                         <ul>
-                                                            <li><a href="products.html">Formal Shoes</a></li>
-                                                            <li><a href="products.html">Boots</a></li>
-                                                            <li><a href="products.html">Sports Shoes</a></li>
-                                                            <li><a href="products.html">Casual Shoes</a></li>
-                                                            <li><a href="products.html">Running Shoes</a></li>
-                                                            <li><a href="products.html">Sneakers</a></li>
-                                                            <li><a href="products.html">Loafers</a></li>
-                                                            <li><a href="products.html">Slippers</a></li>
-                                                            <li><a href="products.html">Sandals</a></li>
-                                                            <li><a href="products.html">Flip-flops</a></li>
+                                                        <li><NavLink to="/category" exact>Shirts</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
+                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
 
                                                         </ul>
                                                     </div>
