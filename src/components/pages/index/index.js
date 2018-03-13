@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
 import ProductItem from '../../reuse/single_product';
 import Banner from '../../reuse/banner';
+import * as indexActions from '../../../store/actions/indexPageActions';
+import { connect } from 'react-redux';
+
 class Index extends Component {
 
+    componentDidMount () {
+        console.log(this.props.newProducts);
+        this.props.onMouted();
+    }
+
     render() {
+
+        let news = this.props.newProducts.map((item) => {
+            return (
+                <div key={item}>
+                    <ProductItem/>
+                </div>
+            )
+        });
         return (
             <div>
                 <Banner/>
@@ -13,10 +29,7 @@ class Index extends Component {
                             <div className="content-top">
                                 <h1>Recent Products</h1>
                                 <div className="content-top1">
-                                    <ProductItem/>
-                                    <ProductItem/>
-                                    <ProductItem/>
-                                    <ProductItem/>
+                                   {news}
                                     <div className="clearfix"> </div>
                                 </div>
                                 <div className="content-top1">
@@ -43,4 +56,17 @@ class Index extends Component {
 
 }
 
-export default Index;
+
+const mapStateToProps = state => {
+    return {
+        newProducts: state.idp.newProducts,
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onMouted: () => dispatch(indexActions.retrieveNewProducs),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
