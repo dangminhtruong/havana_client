@@ -3,6 +3,9 @@ import Tags from '../../reuse/tags';
 import BestSaller from '../../reuse/best_seller';
 import RightCategory from '../../reuse/right_category';
 import Slider from 'react-slick';
+import Header from '../../reuse/header';
+import Footer from '../../reuse/footer';
+import Aux from '../../../hocs/Aux';
 
 class Details extends Component {
     render() {
@@ -17,16 +20,18 @@ class Details extends Component {
           };
 
         return (
+            <Aux>
+            <Header/>
             <div className="single">
                 <div className="container">
                 <div className="col-md-9">
                     <div className="col-md-5 grid">
                         <div className="detail_slider">
                             <Slider {...settings}>
-                                <div><img src='images/si2.jpg' height="300px"/></div>
-                                <div><img src="images/si1.jpg" height="300px"/></div>
-                                <div><img src="images/si2.jpg" height="300px"/></div>
-                                <div><img src="images/si1.jpg" height="300px"/></div>
+                                <div><img src='/images/si2.jpg' height="300px"/></div>
+                                <div><img src="/images/si1.jpg" height="300px"/></div>
+                                <div><img src="/images/si2.jpg" height="300px"/></div>
+                                <div><img src="/images/si1.jpg" height="300px"/></div>
                             </Slider>
                         </div>
                     </div>
@@ -128,6 +133,8 @@ class Details extends Component {
                 <div className="clearfix"> </div>
                 </div>
             </div>
+            <Footer/>
+            </Aux>
         )
     }
                                     

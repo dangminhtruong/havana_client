@@ -167,7 +167,7 @@ i.glyphicon.glyphicon-phone {
   color: #000;
   border:none;
 }	
-a.item_add {
+button.item_add {
  text-decoration: none;
 }		
 .grid_1 img{
@@ -286,7 +286,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 	font-size: 1.5em;
 	margin-top: 3px;
 }
-.price a {
+.price button {
     color: #FFF;
   font-size: 0.9em;
   display: block;
@@ -316,7 +316,7 @@ ul.callbacks_tabs.callbacks1_tabs {
   -moz-transition: 0.5s all;
   -ms-transition: 0.5s all;
 }
-.col-md1:hover .price a {
+.col-md1:hover .price button {
   background-color: #000;
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
@@ -1288,7 +1288,7 @@ select.in-drop, select.in-drop1 {
 .price h5 {
   font-size: 1.1em;
 }
-.price a {
+.price button {
   padding: 0.3em 0.5em;
 }
 /*--single--*/
@@ -1421,7 +1421,7 @@ select.in-drop, select.in-drop1 {
   padding: 0 3px;
   margin: 0 0 1em;
 }
-.price a {
+.price button {
   font-size: 0.8em;
 }
 .col-md-9 {
@@ -1619,7 +1619,7 @@ p.log {
 .col-md1 h3 {
   font-size: 1.1em;
 }
-.price a {
+.price button {
   font-size: 0.7em;
   display: inline-block;
   float: none;

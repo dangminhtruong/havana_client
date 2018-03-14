@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import _ from 'lodash';
 
 class Header extends Component {
-
     render() {
+        let menCategory = null;
+        let womenCategory = null;
+        /* console.log(this.props.categories);
+        if(this.props.category.length !== 0){
+            let men  = _.filter(this.props.category, function(o) { return o.type !== 1; });
+            let women = _.find(this.props.category, function(o) { return o.type !== 0; });;
+            menCategory = men.map((item) => {
+                return (
+                    <li><NavLink to="/category" exact>{item.name}</NavLink></li>
+                )
+            });
+            
+            womenCategory = women.map((item) => {
+                return (
+                    <li><NavLink to="/category" exact>{item.name}</NavLink></li>
+                )
+            });
+        } */
         return (
             <div className="header">
                 <div className="header-top">
@@ -25,7 +43,7 @@ class Header extends Component {
                             </ul>
                         </div>
                         <div className="col-sm-4 logo">
-                        <NavLink to="/" exact><img src="images/logo.png" alt=""/></NavLink>
+                        <NavLink to="/" exact><img src="/images/logo.png" alt=""/></NavLink>
 				        </div>
 
                             <div className="col-sm-4 header-left">
@@ -37,7 +55,7 @@ class Header extends Component {
                                             <span className="simpleCart_total"></span></div>
                                             <img src="images/cart.png" alt="" /></h3>
                                     </NavLink>
-                                    <p><NavLink to="/checkout" className="simpleCart_empty" exact>Empty Cart</NavLink></p>
+                                    <p><NavLink to="/checkout" className="simpleCart_empty" exact>{ this.props.cart } items</NavLink></p>
 
                                 </div>
                                 <div className="clearfix"> </div>
@@ -56,113 +74,43 @@ class Header extends Component {
                                     <li><a href="#">Men</a>
                                         <div className="mepanel">
                                             <div className="row">
-                                                <div className="col1">
+                                                <div className="col3">
                                                     <div className="h_nav">
-                                                        <h4>All Clothing</h4>
+                                                        <h4>Men Fashion</h4>
                                                         <ul>
-                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
+                                                           { menCategory }
 
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div className="col1">
+                                                <div className="col3">
                                                     <div className="h_nav">
                                                         <h4>Footwear</h4>
                                                         <ul>
-                                                        <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Shirts</NavLink></li>
-                                                            <li><NavLink to="/category" exact>Sports Wear</NavLink></li>
-
+                                                            <li><img src="https://p.w3layouts.com/demos/n_air/web/images/menu3.jpg"/></li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div className="col1">
-                                                    <div className="h_nav">
-                                                        <h4>Popular Brands</h4>
-                                                        <ul>
-                                                            <li><a href="products.html">Levis</a></li>
-                                                            <li><a href="products.html">Persol</a></li>
-                                                            <li><a href="products.html">Nike</a></li>
-                                                            <li><a href="products.html">Edwin</a></li>
-                                                            <li><a href="products.html">New Balance</a></li>
-                                                            <li><a href="products.html">Jack & Jones</a></li>
-                                                            <li><a href="products.html">Paul Smith</a></li>
-                                                            <li><a href="products.html">Ray-Ban</a></li>
-                                                            <li><a href="products.html">Wood Wood</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                     </li>
                                     <li className="grid"><a href="#">	Women</a>
                                         <div className="mepanel">
                                             <div className="row">
-                                                <div className="col1">
+                                                <div className="col3">
                                                     <div className="h_nav">
                                                         <h4>All Clothing</h4>
                                                         <ul>
-                                                            <li><a href="products.html">Shirts & Tops</a></li>
-                                                            <li><a href="products.html">Sports Wear</a></li>
-                                                            <li><a href="products.html">Kurtas & Kurties</a></li>
-                                                            <li><a href="products.html">Suits & Blazers</a></li>
-                                                            <li><a href="products.html">Sarees</a></li>
-                                                            <li><a href="products.html">Sweatpants</a></li>
-                                                            <li><a href="products.html">Swimwear</a></li>
-                                                            <li><a href="products.html">Night-Suits</a></li>
-                                                            <li><a href="products.html">T-Shirts</a></li>
-                                                            <li><a href="products.html">Jeans</a></li>
-
+                                                          {womenCategory}
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div className="col1">
+                                                <div className="col3">
                                                     <div className="h_nav">
                                                         <h4>Footwear</h4>
                                                         <ul>
-                                                            <li><a href="products.html">Heels</a></li>
-                                                            <li><a href="products.html">Flats</a></li>
-                                                            <li><a href="products.html">Sports Shoes</a></li>
-                                                            <li><a href="products.html">Casual Shoes</a></li>
-                                                            <li><a href="products.html">Running Shoes</a></li>
-                                                            <li><a href="products.html">Wedges</a></li>
-                                                            <li><a href="products.html">Boots</a></li>
-                                                            <li><a href="products.html">Pumps</a></li>
-                                                            <li><a href="products.html">Slippers</a></li>
-                                                            <li><a href="products.html">Flip-flops</a></li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div className="col1">
-                                                    <div className="h_nav">
-                                                        <h4>Popular Brands</h4>
-                                                        <ul>
-                                                            <li><a href="products.html">Levis</a></li>
-                                                            <li><a href="products.html">Persol</a></li>
-                                                            <li><a href="products.html">Nike</a></li>
-                                                            <li><a href="products.html">Edwin</a></li>
-                                                            <li><a href="products.html">New Balance</a></li>
-                                                            <li><a href="products.html">Jack & Jones</a></li>
-                                                            <li><a href="products.html">Paul Smith</a></li>
-                                                            <li><a href="products.html">Ray-Ban</a></li>
-                                                            <li><a href="products.html">Wood Wood</a></li>
+                                                            <li><img src="https://p.w3layouts.com/demos/n_air/web/images/menu3.jpg"/></li>
                                                         </ul>
                                                     </div>
                                                 </div>
