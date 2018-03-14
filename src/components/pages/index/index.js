@@ -5,8 +5,14 @@ import axios from '../../../axios';
 import _ from 'lodash';
 import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
+import Notifications, {notify} from 'react-notify-toast';
 
 class Index extends Component {
+
+    constructor() {
+        super();
+        this.show = notify.createShowQueue();
+    }
 
     state = {
         cartItems : 0,
@@ -20,6 +26,7 @@ class Index extends Component {
                     this.setState({
                         cartItems : response.data.cart_items
                     });
+                    this.show('Add cart successfull !', 'success', 3000);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -91,6 +98,7 @@ class Index extends Component {
                 <Header cart = {this.state.cartItems}/>
                 <Banner/>
                 <div>
+                    <Notifications />
                     <div className="content">
                         <div className="container">
                             <div className="content-top">

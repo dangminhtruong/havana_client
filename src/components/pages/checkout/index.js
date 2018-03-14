@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import Header from '../../reuse/header';
+import Footer from '../../reuse/footer';
+import Aux from '../../../hocs/Aux';
+
 
 class Checkout extends Component {
 
     render() {
         return (
+            <Aux>
+            <Header/>
             <div className="container">
                 <div className="check-out">
                     <h1>Checkout</h1>
@@ -66,6 +72,8 @@ class Checkout extends Component {
                     <div className="clearfix"> </div>
                 </div>
             </div>
+            <Footer/>
+            </Aux>
         )
     }
 

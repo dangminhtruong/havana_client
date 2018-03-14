@@ -6,9 +6,31 @@ import Slider from 'react-slick';
 import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import Aux from '../../../hocs/Aux';
+import axios from '../../../axios';
+import config from '../../../config';
+import Related from './relatedItem';
 
 class Details extends Component {
+
+    state = {
+        currentInfor : {},
+        related :  []
+    }
+
+    componentDidMount () {
+         axios.get(`/product-data/${this.props.match.params.id}`)
+        .then((response) => {
+            console.log(response.data);
+            this.setState({
+                currentInfor : response.data.product,
+                related : response.data.related_product
+            });
+        }); 
+    }
+
     render() {
+
+        let related = null;
 
         const settings = {
             dots: true,
@@ -19,7 +41,20 @@ class Details extends Component {
             slidesToScroll: 1
           };
 
+
+          if(this.state.related.length !== 0){
+            related = this.state.related.map((item) => {
+                return (
+                    <div key={item._id}>
+                        <Related infor = {item} />
+                    </div>
+                )
+            });
+          }
+
+
         return (
+            
             <Aux>
             <Header/>
             <div className="single">
@@ -28,7 +63,7 @@ class Details extends Component {
                     <div className="col-md-5 grid">
                         <div className="detail_slider">
                             <Slider {...settings}>
-                                <div><img src='/images/si2.jpg' height="300px"/></div>
+                                <div><img src={ `${config.BASE_API_URL}img/${this.state.currentInfor.image}` } height="300px"/></div>
                                 <div><img src="/images/si1.jpg" height="300px"/></div>
                                 <div><img src="/images/si2.jpg" height="300px"/></div>
                                 <div><img src="/images/si1.jpg" height="300px"/></div>
@@ -37,8 +72,8 @@ class Details extends Component {
                     </div>
                     <div className="col-md-7 single-top-in">
                         <div className="single-para simpleCart_shelfItem">
-                            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old.It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old.</p>
+                            <h1>{ this.state.currentInfor.name }</h1>
+                            <p>{ this.state.currentInfor.descript }</p>
                             <div className="star-on">
                             <ul>
                                 <li><a href="#"><i className="glyphicon glyphicon-star"> </i></a></li>
@@ -53,7 +88,9 @@ class Details extends Component {
                             </div>
                             <div className="clearfix"> </div>
                             </div>
-                            <label className="add-to item_price">$32.8</label>
+                            <label className="add-to item_price">
+                                ${ (this.state.currentInfor.promo_price) ? this.state.currentInfor.promo_price : this.state.currentInfor.unit_price }
+                            </label>
                             <div className="available">
                             <h6>Available Options :</h6>
                             <ul>
@@ -81,45 +118,7 @@ class Details extends Component {
                     </div>
                     <div className="clearfix"> </div>
                     <div className="content-top1">
-                        <div className="col-md-4 col-md3">
-                            <div className="col-md1 simpleCart_shelfItem">
-                            <a href="single.html">
-                            <img className="img-responsive" src="images/pi6.png" alt="" />
-                            </a>
-                            <h3><a href="single.html">Jeans</a></h3>
-                            <div className="price">
-                                <h5 className="item_price">$300</h5>
-                                <a href="#" className="item_add">Add To Cart</a>
-                                <div className="clearfix"> </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4 col-md3">
-                            <div className="col-md1 simpleCart_shelfItem">
-                            <a href="single.html">
-                            <img className="img-responsive" src="images/pi7.png" alt="" />
-                            </a>
-                            <h3><a href="single.html">Tops</a></h3>
-                            <div className="price">
-                                <h5 className="item_price">$300</h5>
-                                <a href="#" className="item_add">Add To Cart</a>
-                                <div className="clearfix"> </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4 col-md3">
-                            <div className="col-md1 simpleCart_shelfItem">
-                            <a href="single.html">
-                            <img className="img-responsive" src="images/pi.png" alt="" />
-                            </a>
-                            <h3><a href="single.html">Tops</a></h3>
-                            <div className="price">
-                                <h5 className="item_price">$300</h5>
-                                <a href="#" className="item_add">Add To Cart</a>
-                                <div className="clearfix"> </div>
-                            </div>
-                            </div>
-                        </div>
+                            { related }
                         <div className="clearfix"> </div>
                     </div>
                 </div>
