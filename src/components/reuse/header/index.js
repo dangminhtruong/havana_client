@@ -3,25 +3,30 @@ import { NavLink } from 'react-router-dom';
 import _ from 'lodash';
 
 class Header extends Component {
+    componentDidMount () {
+        console.log(this.props.menu);
+    }
+
     render() {
         let menCategory = null;
         let womenCategory = null;
-        /* console.log(this.props.categories);
-        if(this.props.category.length !== 0){
-            let men  = _.filter(this.props.category, function(o) { return o.type !== 1; });
-            let women = _.find(this.props.category, function(o) { return o.type !== 0; });;
+
+        if(this.props.menu.length !== 0){
+            let men  = _.filter(this.props.menu, function(o) { return o.type == 1; });
+            let women = _.filter(this.props.menu, function(o) { return o.type == 2; });
+
             menCategory = men.map((item) => {
                 return (
-                    <li><NavLink to="/category" exact>{item.name}</NavLink></li>
+                    <li key={item._id}><NavLink to="/category" exact>{item.name}</NavLink></li>
                 )
             });
             
             womenCategory = women.map((item) => {
                 return (
-                    <li><NavLink to="/category" exact>{item.name}</NavLink></li>
+                    <li key={item._id}><NavLink to="/category" exact>{item.name}</NavLink></li>
                 )
-            });
-        } */
+            });  
+        } 
         return (
             <div className="header">
                 <div className="header-top">

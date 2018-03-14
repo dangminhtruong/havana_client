@@ -18,6 +18,7 @@ class Index extends Component {
         cartItems : 0,
         newProducts : [],
         featureProducts : [],
+        category : []
     }
 
     addToCart =  (productId) => {
@@ -33,12 +34,6 @@ class Index extends Component {
 				});  
     }
 
-
-    state = {
-        newProducts : [],
-        featureProducts : []
-    }
-
     componentDidMount () {
         axios.get('index-data')
         .then((response) => {
@@ -46,7 +41,9 @@ class Index extends Component {
                 cartItems : response.data.cart_items,
                 newProducts : response.data.newProducts,
                 featureProducts : response.data.featuresProduct,
+                category : response.data.category
             });
+            console.log(this.state.category);
         });
     }
 
@@ -95,7 +92,8 @@ class Index extends Component {
 
         return (
             <div>
-                <Header cart = {this.state.cartItems}/>
+                <Header cart = {this.state.cartItems}
+                        menu = { this.state.category }/>
                 <Banner/>
                 <div>
                     <Notifications />
