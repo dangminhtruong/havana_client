@@ -10,6 +10,7 @@ import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import _ from 'lodash';
 import Notifications, {notify} from 'react-notify-toast';
+import Paginate from '../../reuse/paginate';
 
 class Category extends Component {
 
@@ -29,7 +30,6 @@ class Category extends Component {
     componentDidMount () {
         axios.get(`category-data/${this.props.match.params.id}`)
         .then(response => {
-            console.log(response);
             this.setState({
                 cartItems : response.data.cart,
                 category : response.data.category,
@@ -95,14 +95,7 @@ class Category extends Component {
                                     {lineThree}
                                 <div className="clearfix"> </div>
                             </div>
-                            <div className="col-md-12">
-                            <ul className="pagination pagination-sm">
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                            </ul></div>
+                            <Paginate totalPages = { 5 }/>
                         </div>
                         <div className="col-md-3 product-bottom">
                             <div className=" rsidebar span_1_of_left">
