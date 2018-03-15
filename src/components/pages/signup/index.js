@@ -2,14 +2,30 @@ import React, { Component } from 'react';
 import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import Aux from '../../../hocs/Aux';
-
+import axios from '../../../axios';
 
 class Signup extends Component {
+
+    state = {
+        category : [],
+        cartItems : 0
+    }
+
+    componentDidMount(){
+        axios.get('category')
+        .then((responese) => {
+            this.setState({
+                category : responese.data.category,
+                cartItems : responese.data.cart
+            });
+        });
+    }
 
     render() {
         return (
             <Aux>
-                <Header/>
+                <Header cart = {this.state.cartItems}
+                        menu = { this.state.category }/>
                 <div className="container">
                     <div className="register">
                         <h1>Register</h1>

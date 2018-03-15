@@ -1,3 +1,3 @@
 const initialState = {
-    new_product : []
-}
+	new_product : []
+};

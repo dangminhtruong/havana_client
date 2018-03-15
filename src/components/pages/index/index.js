@@ -18,10 +18,11 @@ class Index extends Component {
         cartItems : 0,
         newProducts : [],
         featureProducts : [],
+        category : []
     }
 
     addToCart =  (productId) => {
-        axios.get('/shoping-cart/add/' + productId, {withCredentials: true})
+        axios.get('/shoping-cart/add/' + productId)
 				.then((response) => {
                     this.setState({
                         cartItems : response.data.cart_items
@@ -33,12 +34,6 @@ class Index extends Component {
 				});  
     }
 
-
-    state = {
-        newProducts : [],
-        featureProducts : []
-    }
-
     componentDidMount () {
         axios.get('index-data')
         .then((response) => {
@@ -46,6 +41,7 @@ class Index extends Component {
                 cartItems : response.data.cart_items,
                 newProducts : response.data.newProducts,
                 featureProducts : response.data.featuresProduct,
+                category : response.data.category
             });
         });
     }
@@ -95,7 +91,8 @@ class Index extends Component {
 
         return (
             <div>
-                <Header cart = {this.state.cartItems}/>
+                <Header cart = {this.state.cartItems}
+                        menu = { this.state.category }/>
                 <Banner/>
                 <div>
                     <Notifications />

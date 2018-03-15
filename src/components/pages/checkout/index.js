@@ -2,14 +2,30 @@ import React, { Component } from 'react';
 import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import Aux from '../../../hocs/Aux';
-
+import axios from '../../../axios';
 
 class Checkout extends Component {
+
+    state = {
+        category : [],
+        cartItems : 0
+    }
+
+    componentDidMount(){
+        axios.get('category')
+        .then((responese) => {
+            this.setState({
+                category : responese.data.category,
+                cartItems : responese.data.cart
+            });
+        });
+    }
 
     render() {
         return (
             <Aux>
-            <Header/>
+            <Header cart = {this.state.cartItems}
+                        menu = { this.state.category }/>
             <div className="container">
                 <div className="check-out">
                     <h1>Checkout</h1>
@@ -33,7 +49,7 @@ class Checkout extends Component {
                             </div>
                             <div className="clearfix"> </div>
                             </td>
-                            <td className="check"><input type="text" value="1"/></td>
+                            <td className="check"><input type="text" defaultValue={ 1 }/></td>
                             <td>$100.00</td>
                             <td>FREE SHIPPING</td>
                             <td>$100.00</td>
@@ -47,7 +63,7 @@ class Checkout extends Component {
                             </div>
                             <div className="clearfix"> </div>
                             </td>
-                            <td className="check"><input type="text" value="1"/></td>
+                            <td className="check"><input type="text" defaultValue={ 1 }/></td>
                             <td>$200.00</td>
                             <td>FREE SHIPPING</td>
                             <td>$200.00</td>
@@ -61,7 +77,7 @@ class Checkout extends Component {
                             </div>
                             <div className="clearfix"> </div>
                             </td>
-                            <td className="check"><input type="text" value="1"/></td>
+                            <td className="check"><input type="text" defaultValue={ 1 }/></td>
                             <td>$150.00</td>
                             <td>FREE SHIPPING</td>
                             <td>$150.00</td>

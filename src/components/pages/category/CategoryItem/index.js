@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
+import config from '../../../../config';
+import { NavLink, Link } from 'react-router-dom';
 
 class CategoryItem extends Component {
-
-    render() {
-        return (
-            <div className="col-md-4 col-md3">
-            <div className="col-md1 simpleCart_shelfItem">
-                <a href="single.html">
-                    <img className="img-responsive" src="images/pi.png" alt="" />
-                </a>
-                <h3><a href="single.html">Tops</a></h3>
-                <div className="price">
-                    <h5 className="item_price">$300</h5>
-                    <a href="#" className="item_add">Add To Cart</a>
-                    <div className="clearfix"> </div>
-                </div>
-            </div>
-            </div>
-        )
-    }
+	render() {
+		return (
+			<div className="col-md-4 col-md3">
+				<div className="col-md1 simpleCart_shelfItem">
+					<Link to={`/details/${this.props.infor._id}`}>
+						<img className="img-responsive" src= { `${config.BASE_API_URL}img/${this.props.infor.image}` } alt="" />
+					</Link>
+					<h3><a href="single.html">{ this.props.infor.name }</a></h3>
+					<div className="price">
+						<h5 className="item_price">${ (this.props.infor.promo_price !== 0 ) ? this.props.infor.promo_price : this.props.infor.unit_price }</h5>
+						<button className="item_add" onClick = { () => this.props.addcart(this.props.infor._id) }>Add To Cart</button>
+						<div className="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		);
+	}
 
 }
 
