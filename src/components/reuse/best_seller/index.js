@@ -3,7 +3,7 @@ import config from '../../../config';
 
 class BestSeller extends Component {
 
-    render() {
+	render() {
 
 		let bestSale = this.props.bestSale.map((item) => {
 			return (
@@ -17,16 +17,16 @@ class BestSeller extends Component {
 					</div>	
 					<div className="clearfix"> </div>
 				</div>
-			)
+			);
 		});
 
-        return (
-            <div className="product-bottom">
+		return (
+			<div className="product-bottom">
 				<h3 className="cate">Best Sellers</h3>
 				{ bestSale }	
 			</div>
-        )
-    }
+		);
+	}
 
 }
 

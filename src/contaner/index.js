@@ -10,20 +10,20 @@ import axios from '../axios';
 import Aux from '../hocs/Aux';
 
 class Container extends Component {
-    render() {
-        return (
-            <Aux>
-                <Switch>
-                    <Route path="/" exact component={Index} />
-                    <Route path="/category/:id" exact component={Category} />
-                    <Route path="/details/:id" exact component={Details} />
-                    <Route path="/login" exact component={Login} />
-                    <Route path="/signup" exact component={Signup} />
-                    <Route path="/checkout" exact component={Checkout} />
-                </Switch>
-            </Aux>
-        )
-    }
+	render() {
+		return (
+			<Aux>
+				<Switch>
+					<Route path="/" exact component={Index} />
+					<Route path="/category/:id" exact component={Category} />
+					<Route path="/details/:id" exact component={Details} />
+					<Route path="/login" exact component={Login} />
+					<Route path="/signup" exact component={Signup} />
+					<Route path="/checkout" exact component={Checkout} />
+				</Switch>
+			</Aux>
+		);
+	}
 }
 
 export default Container;
