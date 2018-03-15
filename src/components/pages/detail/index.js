@@ -10,28 +10,32 @@ import axios from '../../../axios';
 import config from '../../../config';
 import Related from './relatedItem';
 
+
 class Details extends Component {
 
     state = {
         currentInfor : {},
-        related :  []
+        related :  [],
+        cartItems : 0,
+        category : [],
+        bestSaller : []
     }
 
     componentDidMount () {
          axios.get(`/product-data/${this.props.match.params.id}`)
         .then((response) => {
-            console.log(response.data);
             this.setState({
                 currentInfor : response.data.product,
-                related : response.data.related_product
+                related : response.data.related_product,
+                category : response.data.category,
+                cartItems : response.data.cart,
+                bestSaller : response.data.best_sales
             });
-        }); 
+        });
     }
 
     render() {
-
-        let related = null;
-
+        let relates = null;
         const settings = {
             dots: true,
             dotsClass: 'slick-dots slick-thumb',
@@ -41,9 +45,8 @@ class Details extends Component {
             slidesToScroll: 1
           };
 
-
           if(this.state.related.length !== 0){
-            related = this.state.related.map((item) => {
+            relates = this.state.related.map((item) => {
                 return (
                     <div key={item._id}>
                         <Related infor = {item} />
@@ -52,11 +55,11 @@ class Details extends Component {
             });
           }
 
-
         return (
             
             <Aux>
-            <Header/>
+            <Header cart = {this.state.cartItems}
+                    menu = { this.state.category }/>
             <div className="single">
                 <div className="container">
                 <div className="col-md-9">
@@ -118,14 +121,14 @@ class Details extends Component {
                     </div>
                     <div className="clearfix"> </div>
                     <div className="content-top1">
-                            { related }
+                            { relates }
                         <div className="clearfix"> </div>
                     </div>
                 </div>
                 <div className="col-md-3 product-bottom">
                         <RightCategory/>
                     <div className="product-bottom">
-                        <BestSaller/>
+                        <BestSaller bestSale = {this.state.bestSaller}/>
                     </div>
                     <Tags/>
                 </div>

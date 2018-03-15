@@ -3,13 +3,30 @@ import { NavLink } from 'react-router-dom';
 import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import Aux from '../../../hocs/Aux';
+import axios from '../../../axios';
 
 class Login extends Component {
+
+    state = {
+        category : [],
+        cartItems : 0
+    }
+
+    componentDidMount(){
+        axios.get('category')
+        .then((responese) => {
+            this.setState({
+                category : responese.data.category,
+                cartItems : responese.data.cart
+            });
+        });
+    }
 
     render() {
         return (
             <Aux>
-                <Header/>
+                <Header cart = {this.state.cartItems}
+                        menu = { this.state.category }/>
                 <div className="account">
                     <div className="container">
                         <h1>Account</h1>

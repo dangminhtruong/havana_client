@@ -3,27 +3,23 @@ import { NavLink } from 'react-router-dom';
 import _ from 'lodash';
 
 class Header extends Component {
-    componentDidMount () {
-        console.log(this.props.menu);
-    }
-
     render() {
         let menCategory = null;
         let womenCategory = null;
 
         if(this.props.menu.length !== 0){
-            let men  = _.filter(this.props.menu, function(o) { return o.type == 1; });
-            let women = _.filter(this.props.menu, function(o) { return o.type == 2; });
+            let men  = _.filter(this.props.menu, function(o) { return o.type === 1; });
+            let women = _.filter(this.props.menu, function(o) { return o.type === 2; });
 
             menCategory = men.map((item) => {
                 return (
-                    <li key={item._id}><NavLink to="/category" exact>{item.name}</NavLink></li>
+                    <li key={item._id}><NavLink to={`/category/${item._id}`} exact>{item.name}</NavLink></li>
                 )
             });
             
             womenCategory = women.map((item) => {
                 return (
-                    <li key={item._id}><NavLink to="/category" exact>{item.name}</NavLink></li>
+                    <li key={item._id}><NavLink to={`/category/${item._id}`} exact>{item.name}</NavLink></li>
                 )
             });  
         } 
@@ -58,7 +54,7 @@ class Header extends Component {
                                     <NavLink to="/checkout" className="simpleCart_empty" exact>
                                         <h3> <div className="total">
                                             <span className="simpleCart_total"></span></div>
-                                            <img src="images/cart.png" alt="" /></h3>
+                                            <img src="/images/cart.png" alt="" /></h3>
                                     </NavLink>
                                     <p><NavLink to="/checkout" className="simpleCart_empty" exact>{ this.props.cart } items</NavLink></p>
 
@@ -76,7 +72,7 @@ class Header extends Component {
                             <div className="col-sm-8 h_menu4">
                                 <ul className="memenu skyblue">
                                     <li className=" grid"><NavLink to="/" exact>Home</NavLink></li>
-                                    <li><a href="#">Men</a>
+                                    <li><a href="/">Men</a>
                                         <div className="mepanel">
                                             <div className="row">
                                                 <div className="col3">
@@ -84,7 +80,6 @@ class Header extends Component {
                                                         <h4>Men Fashion</h4>
                                                         <ul>
                                                            { menCategory }
-
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -100,7 +95,7 @@ class Header extends Component {
                                             </div>
                                         </div>
                                     </li>
-                                    <li className="grid"><a href="#">	Women</a>
+                                    <li className="grid"><a href="/">	Women</a>
                                         <div className="mepanel">
                                             <div className="row">
                                                 <div className="col3">
@@ -127,23 +122,10 @@ class Header extends Component {
                                 </ul>
                             </div>
                             <div className="col-sm-2 search">
-                                <a className="play-icon popup-with-zoom-anim" href="#small-dialog"><i className="glyphicon glyphicon-search"> </i> </a>
+                                <span className="play-icon popup-with-zoom-anim"><i className="glyphicon glyphicon-search"> </i> </span>
                             </div>
                             <div className="clearfix"> </div>
-
-                            <script type="text/javascript" src="js/modernizr.custom.min.js"></script>
-                            <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
-                            <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-                            <div id="small-dialog" className="mfp-hide">
-                                <div className="search-top">
-                                    <div className="login">
-                                        <input type="submit"/>
-                                            <input type="text" placeholder="Type something..."/>		
-						            </div>
-                                            <p>	Shopping</p>
-					            </div>
-                                    </div>
-                                </div>
+                            </div>
                             </div>
                         </div>
                         )

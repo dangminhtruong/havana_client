@@ -22,7 +22,7 @@ class Index extends Component {
     }
 
     addToCart =  (productId) => {
-        axios.get('/shoping-cart/add/' + productId, {withCredentials: true})
+        axios.get('/shoping-cart/add/' + productId)
 				.then((response) => {
                     this.setState({
                         cartItems : response.data.cart_items
@@ -43,7 +43,6 @@ class Index extends Component {
                 featureProducts : response.data.featuresProduct,
                 category : response.data.category
             });
-            console.log(this.state.category);
         });
     }
 
