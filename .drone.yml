@@ -1,5 +1,5 @@
 build:
-  .
+  node:9.5.0
   commands:
     - yarn install
     - eslint routes/
