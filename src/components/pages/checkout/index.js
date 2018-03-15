@@ -3,25 +3,51 @@ import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import Aux from '../../../hocs/Aux';
 import axios from '../../../axios';
+import config from '../../../config';
 
 class Checkout extends Component {
 
     state = {
         category : [],
-        cartItems : 0
+        cartItems : 0,
+        products : []
     }
 
     componentDidMount(){
-        axios.get('category')
-        .then((responese) => {
+        axios.get('shoping-cart/cart-data-api')
+        .then((response) => {
+            console.log(response);
             this.setState({
-                category : responese.data.category,
-                cartItems : responese.data.cart
+                category : response.data.category,
+                cartItems : response.data.cart,
+                products : response.data.products
             });
         });
     }
 
     render() {
+       let list = null;
+       if(this.state.products.length !== 0){
+        list = this.state.products.map(item => {
+            return (
+                <tr key={item._id}>
+                    <td className="ring-in">
+                    <a href="single.html" className="at-in"><img src= { `${config.BASE_API_URL}img/${item.product_img}` } className="img-responsive" alt=""/></a>
+                    <div className="sed">
+                        <h5>{ item.product_name }</h5>
+                    </div>
+                    <div className="clearfix"> </div>
+                    </td>
+                    <td className="check"><input type="text" defaultValue={ item.product_quantity  }/></td>
+                    <td>${ (item.promo_price) ? item.promo_price : item.unit_price}</td>
+                    <td>FREE SHIPPING</td>
+                    <td>${ (item.promo_price) ? item.product_quantity * item.promo_price: item.product_quantity * item.unit_price }</td>
+                </tr>
+            )
+        });
+       }
+
+
         return (
             <Aux>
             <Header cart = {this.state.cartItems}
@@ -40,48 +66,7 @@ class Checkout extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td className="ring-in">
-                            <a href="single.html" className="at-in"><img src="images/ce.jpg" className="img-responsive" alt=""/></a>
-                            <div className="sed">
-                                <h5>Sed ut perspiciatis unde</h5>
-                                <p>(At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium) </p>
-                            </div>
-                            <div className="clearfix"> </div>
-                            </td>
-                            <td className="check"><input type="text" defaultValue={ 1 }/></td>
-                            <td>$100.00</td>
-                            <td>FREE SHIPPING</td>
-                            <td>$100.00</td>
-                        </tr>
-                        <tr>
-                            <td className="ring-in">
-                            <a href="single.html" className="at-in"><img src="images/ce1.jpg" className="img-responsive" alt=""/></a>
-                            <div className="sed">
-                                <h5>Sed ut perspiciatis unde</h5>
-                                <p>(At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium ) </p>
-                            </div>
-                            <div className="clearfix"> </div>
-                            </td>
-                            <td className="check"><input type="text" defaultValue={ 1 }/></td>
-                            <td>$200.00</td>
-                            <td>FREE SHIPPING</td>
-                            <td>$200.00</td>
-                        </tr>
-                        <tr>
-                            <td className="ring-in">
-                            <a href="single.html" className="at-in"><img src="images/ce2.jpg" className="img-responsive" alt=""/></a>
-                            <div className="sed">
-                                <h5>Sed ut perspiciatis unde</h5>
-                                <p>(At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium) </p>
-                            </div>
-                            <div className="clearfix"> </div>
-                            </td>
-                            <td className="check"><input type="text" defaultValue={ 1 }/></td>
-                            <td>$150.00</td>
-                            <td>FREE SHIPPING</td>
-                            <td>$150.00</td>
-                        </tr>
+                            { list }
                         </tbody>
                     </table>
                     <a href="#" className="to-buy">PROCEED TO BUY</a>
