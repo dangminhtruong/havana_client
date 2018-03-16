@@ -9,6 +9,6 @@ class App extends Component {
 				<Container/>
 			</div>
 		);
-	} 
+	}
 }
 export default App;
