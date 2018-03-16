@@ -34,6 +34,21 @@ class Details extends Component {
         });
     }
 
+    componentWillReceiveProps(nextProps){
+        if (nextProps.match.params.id !== this.props.match.params.id) {
+            axios.get(`/product-data/${nextProps.match.params.id}`)
+            .then((response) => {
+                this.setState({
+                    currentInfor : response.data.product,
+                    related : response.data.related_product,
+                    category : response.data.category,
+                    cartItems : response.data.cart,
+                    bestSaller : response.data.best_sales
+                });
+            });
+        }
+    }
+
     render() {
         let relates = null;
         const settings = {

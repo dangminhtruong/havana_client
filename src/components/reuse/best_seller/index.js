@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import config from '../../../config';
+import { Link } from 'react-router-dom';
 
 class BestSeller extends Component {
-
 	render() {
 
 		let bestSale = this.props.bestSale.map((item) => {
 			return (
 				<div className="product-go" key={item._id}>
 					<div className=" fashion-grid">
-						<a href="single.html"><img className="img-responsive " src={ `${config.BASE_API_URL}img/${item.image}` } alt=""/></a>	
+						<Link to ={ `/details/${item._id}` }>
+							<img className="img-responsive " src={ `${config.BASE_API_URL}img/${item.image}` } alt=""/>
+						</Link>	
 					</div>
 					<div className=" fashion-grid1">
 						<h6 className="best2"><a href="single.html" >{ item.name }</a></h6>

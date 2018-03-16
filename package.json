@@ -1,6 +1,6 @@
 {
-  "homepage": "http://username.github.io/havana_client",
-  "name": "havana_client",
+  "homepage": "http://username.github.io/",
+  "name": "havana-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
