@@ -2,4 +2,4 @@ build:
   image: node:9.5.0
   commands:
     - yarn install
-    - /node_modules/eslint/bin/eslint.js src/
+    - node_modules/eslint/bin/eslint.js src/
