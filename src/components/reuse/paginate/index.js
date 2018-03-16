@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 
 class Paginate extends Component {
-    render(){
+	render(){
 
-        let list = [];
-        for(let i=1; i<= this.props.totalPages; i++){
-            list.push(<li><span>1</span></li>);
-        }
+		let list = [];
+		for(let i=1; i<= this.props.totalPages; i++){
+			list.push(<li><span>1</span></li>);
+		}
 
-        return (
-            <div className="col-md-12">
-                <ul className="pagination pagination-sm">
-                  {list}
-                </ul>
-            </div>
-        )
-    }
+		return (
+			<div className="col-md-12">
+				<ul className="pagination pagination-sm">
+					{list}
+				</ul>
+			</div>
+		);
+	}
 }
 
 export default Paginate;
