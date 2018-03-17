@@ -9,9 +9,15 @@ import Aux from '../../../hocs/Aux';
 import axios from '../../../axios';
 import config from '../../../config';
 import Related from './relatedItem';
-
+import Notifications, {notify} from 'react-notify-toast';
+import _ from 'lodash';
 
 class Details extends Component {
+
+    constructor() {
+        super();
+        this.show = notify.createShowQueue();
+    }
 
     state = {
         currentInfor : {},
@@ -21,9 +27,28 @@ class Details extends Component {
         bestSaller : []
     }
 
+    addToCart =  (productId) => {
+        axios.post(`/shoping-cart/add/${productId}`, {
+            color : '#ffff',
+            size : 'XXl'
+        })
+        .then((response) => {
+            this.setState({
+                cartItems : response.data.cart_items
+            });
+            this.show('Add cart successfull !', 'success', 3000);
+        })
+        .catch((error) => {
+            console.log(error);
+        });  
+    }
+
+
+
     componentDidMount () {
          axios.get(`/product-data/${this.props.match.params.id}`)
         .then((response) => {
+            
             this.setState({
                 currentInfor : response.data.product,
                 related : response.data.related_product,
@@ -38,6 +63,7 @@ class Details extends Component {
         if (nextProps.match.params.id !== this.props.match.params.id) {
             axios.get(`/product-data/${nextProps.match.params.id}`)
             .then((response) => {
+                console.log(response.data.product);
                 this.setState({
                     currentInfor : response.data.product,
                     related : response.data.related_product,
@@ -51,6 +77,8 @@ class Details extends Component {
 
     render() {
         let relates = null;
+        let colors = null;
+        let sizes = null;
         const settings = {
             dots: true,
             dotsClass: 'slick-dots slick-thumb',
@@ -64,8 +92,27 @@ class Details extends Component {
             relates = this.state.related.map((item) => {
                 return (
                     <div key={item._id}>
-                        <Related infor = {item} />
+                        <Related infor = {item} addCart = { this.addToCart }/>
                     </div>
+                )
+            });
+          }
+
+          if(! _.isEmpty(this.state.currentInfor.colors)){
+            colors = this.state.currentInfor.colors.map((color) => {
+                let inlineStyle = {
+                    color : color.code
+                };
+                return (
+                    <option style={inlineStyle} key={color.code}>color</option>
+                )
+            });
+          }
+
+          if(! _.isEmpty(this.state.currentInfor.size)){
+            sizes = this.state.currentInfor.size.map((size) => {
+                return (
+                    <option key={size.code}>{ size.code }</option>
                 )
             });
           }
@@ -75,6 +122,7 @@ class Details extends Component {
             <Aux>
             <Header cart = {this.state.cartItems}
                     menu = { this.state.category }/>
+            <Notifications />
             <div className="single">
                 <div className="container">
                 <div className="col-md-9">
@@ -115,23 +163,18 @@ class Details extends Component {
                                 <li>
                                     Size:
                                     <select>
-                                        <option>Large</option>
-                                        <option>Medium</option>
-                                        <option>small</option>
-                                        <option>Large</option>
-                                        <option>small</option>
+                                        { sizes }
                                     </select>
                                 </li>
                                 <li>
                                     Color:
                                     <select>
-                                        <option>U.S.Dollar</option>
-                                        <option>Euro</option>
+                                       { colors }
                                     </select>
                                 </li>
                             </ul>
                             </div>
-                            <a href="#" className="cart item_add">More details</a>
+                            <button className="cart item_add" onClick={ () => this.addToCart(this.props.match.params.id) }>Add to cart</button>
                         </div>
                     </div>
                     <div className="clearfix"> </div>

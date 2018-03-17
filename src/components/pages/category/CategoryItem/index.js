@@ -13,7 +13,9 @@ class CategoryItem extends Component {
 					<h3><a href="single.html">{ this.props.infor.name }</a></h3>
 					<div className="price">
 						<h5 className="item_price">${ (this.props.infor.promo_price !== 0 ) ? this.props.infor.promo_price : this.props.infor.unit_price }</h5>
-						<button className="item_add" onClick = { () => this.props.addcart(this.props.infor._id) }>Add To Cart</button>
+						<Link to={`/details/${this.props.infor._id}`}>
+							<button type="button" className="item_add">View more</button>
+						</Link>
 						<div className="clearfix"> </div>
 					</div>
 				</div>

@@ -14,7 +14,9 @@ class ProductItem extends Component {
 					<h3> <Link to={`/details/${this.props.infor._id}`}>{ this.props.infor.name }</Link></h3>
 					<div className="price">
 						<h5 className="item_price">${ price }</h5>
-						<button type="button" className="item_add" onClick = { () => this.props.addcart(this.props.infor._id) }>Add To Cart</button>
+						<Link to={`/details/${this.props.infor._id}`}>
+							<button type="button" className="item_add">View more</button>
+						</Link>
 						<div className="clearfix"> </div>
 					</div>
 				</div>

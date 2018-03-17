@@ -14,7 +14,9 @@ class relatedItem extends Component {
 					<h3><a href="single.html">{ this.props.infor.name}</a></h3>
 					<div className="price">
 						<h5 className="item_price">${ (this.props.infor.promo_price) ? this.props.infor.promo_price : this.props.infor.unit_price }</h5>
-						<a href="#" className="item_add">Add To Cart</a>
+						<Link to={`/details/${this.props.infor._id}`}>
+							<button type="button" className="item_add">View more</button>
+						</Link>
 						<div className="clearfix"> </div>
 					</div>
 				</div>

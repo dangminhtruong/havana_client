@@ -20,20 +20,6 @@ class Index extends Component {
         featureProducts : [],
         category : []
     }
-
-    addToCart =  (productId) => {
-        axios.get('/shoping-cart/add/' + productId)
-				.then((response) => {
-                    this.setState({
-                        cartItems : response.data.cart_items
-                    });
-                    this.show('Add cart successfull !', 'success', 3000);
-				})
-				.catch((error) => {
-					console.log(error);
-				});  
-    }
-
     componentDidMount () {
         axios.get('index-data')
         .then((response) => {
@@ -59,7 +45,7 @@ class Index extends Component {
             lineOneNews = news[0].map((item) => {
                 return (
                     <div key={item._id}>
-                        <ProductItem infor = { item } addcart = { this.addToCart }/>
+                        <ProductItem infor = { item }/>
                     </div>
                 )
             });
@@ -67,7 +53,7 @@ class Index extends Component {
             lineTwoNews = news[1].map((item) => {
                 return (
                     <div key={item._id}>
-                        <ProductItem infor = { item } addcart = { this.addToCart }/>
+                        <ProductItem infor = { item }/>
                     </div>
                 )
             });
@@ -75,7 +61,7 @@ class Index extends Component {
             lineThreeFeature = features[0].map((item) => {
                 return (
                     <div key={item._id}>
-                        <ProductItem infor = { item } addcart = { this.addToCart }/>
+                        <ProductItem infor = { item }/>
                     </div>
                 )
             });
@@ -83,7 +69,7 @@ class Index extends Component {
             lineFourFeature = features[1].map((item) => {
                 return (
                     <div key={item._id}>
-                        <ProductItem infor = { item } addcart = { this.addToCart }/>
+                        <ProductItem infor = { item }/>
                     </div>
                 )
             });

@@ -846,7 +846,7 @@ label.add-to{
 	color:#B2B2B2;
 	line-height:1.8em;
 }
-a.cart{
+button.cart{
   padding: 0.3em 0.7em;
   color: #FFF;
   background: #52D0C4;
@@ -857,7 +857,7 @@ a.cart{
   text-align: center;
   text-decoration:none;
 }
-a.cart:hover{
+button.cart:hover{
 	background: #000;
 }
 /*----*/
@@ -1790,7 +1790,7 @@ table {
 label.add-to {
   font-size: 1.5em;
 }
-a.cart {
+button.cart {
   padding: 0.2em 0.5em;
   margin: 0.5em 0 0;
 }
