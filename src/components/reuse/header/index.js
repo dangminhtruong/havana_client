@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import _ from 'lodash';
+import $ from 'jquery';
+import dropdown from './dropdown';
 
 class Header extends Component {
+
+
+	componentDidMount(){
+		dropdown();
+
+	}
+
+
+
 	render() {
 		let menCategory = null;
 		let womenCategory = null;

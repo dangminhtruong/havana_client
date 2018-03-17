@@ -5,7 +5,7 @@ class Paginate extends Component {
 
         let list = [];
         for(let i=1; i<= this.props.totalPages; i++){
-            list.push(<li><span>1</span></li>);
+            list.push(<li key={i}><span>1</span></li>);
         }
 
         return (
