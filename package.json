@@ -7,6 +7,7 @@
     "axios": "^0.18.0",
     "gh-pages": "^1.1.0",
     "jquery": "^3.3.1",
+    "loadjs": "^3.5.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-notify-toast": "^0.4.0",
