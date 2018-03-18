@@ -3,13 +3,23 @@ import { NavLink } from 'react-router-dom';
 import _ from 'lodash';
 import $ from 'jquery';
 import dropdown from './dropdown';
+import axios from '../../../axios';
 
 class Header extends Component {
 
+	state = {
+		user : {}
+	}
 
 	componentDidMount(){
 		dropdown();
-
+		axios.get('/authenticate')
+		.then((respone) => {
+			console.log(respone.data.user);
+			this.setState({
+				user : respone.data.user
+			});
+		});
 	}
 
 
@@ -17,6 +27,24 @@ class Header extends Component {
 	render() {
 		let menCategory = null;
 		let womenCategory = null;
+		let user = null;
+
+		if(this.state.user){
+			user = (
+				<p className="log">
+					<NavLink to="/profile" exact>Hi !</NavLink>
+					<span> </span><NavLink to="/signup" exact>
+					<span class="glyphicon glyphicon-user"></span> { this.state.user.username }</NavLink>
+				</p>
+			)
+		}else{
+			user =  (
+				<p className="log">
+					<NavLink to="/login" exact>Login</NavLink>
+					<span>or</span><NavLink to="/signup" exact>Signup</NavLink>
+				</p>
+			)
+		}
 
 		if(this.props.menu.length !== 0){
 			let men  = _.filter(this.props.menu, function(o) { return o.type === 1; });
@@ -59,8 +87,7 @@ class Header extends Component {
 				        </div>
 
 						<div className="col-sm-4 header-left">
-							<p className="log"><NavLink to="/login" exact>Login</NavLink>
-								<span>or</span><NavLink to="/signup" exact>Signup</NavLink></p>
+							{ user }
 							<div className="cart box_1">
 								<NavLink to="/checkout" className="simpleCart_empty" exact>
 									<h3> <div className="total">

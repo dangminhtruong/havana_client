@@ -79,6 +79,8 @@ class Details extends Component {
         let relates = null;
         let colors = null;
         let sizes = null;
+        let imgDetails = null;
+
         const settings = {
             dots: true,
             dotsClass: 'slick-dots slick-thumb',
@@ -117,6 +119,16 @@ class Details extends Component {
             });
           }
 
+
+          if(! _.isEmpty(this.state.currentInfor.image_details)){
+            imgDetails = this.state.currentInfor.image_details.map((img) => {
+                return (
+                    <div><img key={img} src={`${config.BASE_API_URL}img/${img}`} height="300px"/></div>
+                )
+            });
+          }
+
+
         return (
             
             <Aux>
@@ -130,9 +142,7 @@ class Details extends Component {
                         <div className="detail_slider">
                             <Slider {...settings}>
                                 <div><img src={ `${config.BASE_API_URL}img/${this.state.currentInfor.image}` } height="300px"/></div>
-                                <div><img src="/images/si1.jpg" height="300px"/></div>
-                                <div><img src="/images/si2.jpg" height="300px"/></div>
-                                <div><img src="/images/si1.jpg" height="300px"/></div>
+                                {imgDetails}
                             </Slider>
                         </div>
                     </div>

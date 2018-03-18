@@ -6,10 +6,12 @@ import Aux from '../../../hocs/Aux';
 import axios from '../../../axios';
 
 class Login extends Component {
-
     state = {
         category : [],
-        cartItems : 0
+        cartItems : 0,
+        username : undefined,
+        password : undefined,
+        showAlert : false,
     }
 
     componentDidMount(){
@@ -22,7 +24,49 @@ class Login extends Component {
         });
     }
 
+    login = () => {
+        console.log(this.state.username);
+        axios.post('/login/client', {
+            username : this.state.username,
+            password : this.state.password
+        })
+        .then((responese) => {
+
+            console.log(responese.data);
+
+            if(responese.data.status !== 200){
+                this.setState({
+                    showAlert : true
+                });
+            }else{
+                this.props.history.push("/");
+            }
+        });
+    }
+
+    setUserName = (event) => {
+        console.log(event.target.username);
+        this.setState({
+            username : event.target.value
+        });
+    }
+
+    setPassWord = (event) => {
+        this.setState({
+            password : event.target.value
+        });
+    }
+
     render() {
+        let showAlert = '';
+        if(this.state.showAlert){
+            return (
+                <small id="emailHelp" className="form-text text-muted">
+                    <p className="alertLogin">Invalid username or password!</p>
+                </small>
+            )
+        }
+
         return (
             <Aux>
                 <Header cart = {this.state.cartItems}
@@ -34,13 +78,14 @@ class Login extends Component {
                             <div className="col-md-6 login-right">
                                 <form>
                                     <span>Email Address</span>
-                                    <input type="text"/> 
+                                    <input type="text" value={this.state.username} onChange={this.setUserName.bind(this)}/> 
                                 
                                     <span>Password</span>
-                                    <input type="text"/> 
+                                    <input type="text" value={this.state.password} onChange={this.setPassWord.bind(this)}/> 
+                                    { showAlert }
                                     <div className="word-in">
                                         <a className="forgot" href="#">Forgot Your Password? </a>
-                                        <input type="submit" value={"Login"}/>
+                                        <button type="button" onClick={this.login}>Login</button>
                                     </div>
                                 </form>
                             </div>	

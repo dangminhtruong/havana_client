@@ -574,7 +574,7 @@ p.footer-class a:hover{
 	padding:10px;
 	  margin: 0.5em 0;
 }
-.login-right input[type="submit"] {
+.login-right button {
 	background:#52d0c4;
 	color: #FFF;
 	font-size: 0.9em;
@@ -1855,4 +1855,8 @@ h1.typo1 {
   font-size: 1.7em;
   margin: 0 0 0.5em;
 }
+}
+
+.alertLogin{
+  color: red;
 }

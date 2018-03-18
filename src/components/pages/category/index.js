@@ -41,6 +41,23 @@ class Category extends Component {
         });
     }
 
+    componentWillReceiveProps(nextProps){
+        if (nextProps.match.params.id !== this.props.match.params.id) {
+            axios.get(`category-data/${this.props.match.params.id}`)
+            .then(response => {
+                this.setState({
+                    cartItems : response.data.cart,
+                    category : response.data.category,
+                    items: response.data.products,
+                    pages : response.data.pages,
+                    bestSale : response.data.best
+                });
+                
+            });
+        }
+    }
+
+
     addToCart =  (productId) => {
         axios.get('/shoping-cart/add/' + productId)
 				.then(respon => {
