@@ -35,7 +35,8 @@ class Category extends Component {
                 category : response.data.category,
                 items: response.data.products,
                 pages : response.data.pages,
-                bestSale : response.data.best
+                bestSale : response.data.best,
+                currentPage : response.data.currentPage
             });
             
         });
@@ -50,7 +51,8 @@ class Category extends Component {
                     category : response.data.category,
                     items: response.data.products,
                     pages : response.data.pages,
-                    bestSale : response.data.best
+                    bestSale : response.data.best,
+                    currentPage : response.data.currentPage
                 });
                 
             });
@@ -70,6 +72,23 @@ class Category extends Component {
 					console.log(error);
 				});  
     }
+
+    paginate = (query) => {
+        console.log('total page', this.state.pages);
+        console.log('query page', query);
+        axios.get(`category-data/${this.props.match.params.id}?pages=${query}`)
+        .then(response => {
+            this.setState({
+                cartItems : response.data.cart,
+                category : response.data.category,
+                items: response.data.products,
+                pages : response.data.pages,
+                bestSale : response.data.best,
+                currentPage : response.data.currentPage
+            });
+        });
+    }
+
     render() {
         let lineOne = null;
         let lineTwo = null;
@@ -112,7 +131,10 @@ class Category extends Component {
                                     {lineThree}
                                 <div className="clearfix"> </div>
                             </div>
-                            <Paginate totalPages = { 5 }/>
+                            <Paginate 
+                                    totalPages = { this.state.pages } 
+                                    currentPage = { this.state.currentPage }
+                                    paginate = {this.paginate.bind(this) }/>
                         </div>
                         <div className="col-md-3 product-bottom">
                             <div className=" rsidebar span_1_of_left">

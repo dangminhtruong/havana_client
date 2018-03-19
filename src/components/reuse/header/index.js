@@ -15,7 +15,6 @@ class Header extends Component {
 		dropdown();
 		axios.get('/authenticate')
 		.then((respone) => {
-			console.log(respone.data.user);
 			this.setState({
 				user : respone.data.user
 			});
@@ -34,7 +33,7 @@ class Header extends Component {
 				<p className="log">
 					<NavLink to="/profile" exact>Hi !</NavLink>
 					<span> </span><NavLink to="/signup" exact>
-					<span class="glyphicon glyphicon-user"></span> { this.state.user.username }</NavLink>
+					<span className="glyphicon glyphicon-user"></span> { this.state.user.username }</NavLink>
 				</p>
 			)
 		}else{

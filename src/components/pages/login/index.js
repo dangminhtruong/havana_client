@@ -9,8 +9,8 @@ class Login extends Component {
     state = {
         category : [],
         cartItems : 0,
-        username : undefined,
-        password : undefined,
+        username : '',
+        password : '',
         showAlert : false,
     }
 
@@ -78,10 +78,10 @@ class Login extends Component {
                             <div className="col-md-6 login-right">
                                 <form>
                                     <span>Email Address</span>
-                                    <input type="text" value={this.state.username} onChange={this.setUserName.bind(this)}/> 
+                                    <input type="text" autoComplete='' value={this.state.username} onChange={this.setUserName.bind(this)}/> 
                                 
                                     <span>Password</span>
-                                    <input type="text" value={this.state.password} onChange={this.setPassWord.bind(this)}/> 
+                                    <input type="text" autoComplete='' value={this.state.password} onChange={this.setPassWord.bind(this)}/> 
                                     { showAlert }
                                     <div className="word-in">
                                         <a className="forgot" href="#">Forgot Your Password? </a>

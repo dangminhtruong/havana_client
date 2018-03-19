@@ -7,7 +7,7 @@ let dropdown = () => {
             if (window.innerWidth <= 768) {
                 o();
                 s();
-                if (n == 0) {
+                if (n === 0) {
                     $(".memenu > li:not(.showhide)").hide(0)
                 }
             } else {
@@ -26,7 +26,7 @@ let dropdown = () => {
     
         function s() {
             $(".memenu > li > a").bind("click", function(e) {
-                if ($(this).siblings(".dropdown, .mepanel").css("display") == "none") {
+                if ($(this).siblings(".dropdown, .mepanel").css("display") === "none") {
                     $(this).siblings(".dropdown, .mepanel").slideDown(t.interval);
                     $(this).siblings(".dropdown").find("ul").slideDown(t.interval);
                     n = 1

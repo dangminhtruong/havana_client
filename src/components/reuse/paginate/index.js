@@ -4,8 +4,9 @@ class Paginate extends Component {
     render(){
 
         let list = [];
-        for(let i=1; i<= this.props.totalPages; i++){
-            list.push(<li key={i}><span>1</span></li>);
+        for(var i=1; i<= this.props.totalPages; ++i){
+            let page = i;
+            list.push(<li key={i} onClick={ () => this.props.paginate(page) }><span>{i}</span></li>);
         }
 
         return (
