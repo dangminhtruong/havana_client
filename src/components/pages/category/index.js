@@ -24,7 +24,8 @@ class Category extends Component {
         category : [],
         items : [],
         bestSale : [],
-        pages : 0
+        pages : 1,
+        url : null
     }
 
     componentDidMount () {
@@ -36,7 +37,8 @@ class Category extends Component {
                 items: response.data.products,
                 pages : response.data.pages,
                 bestSale : response.data.best,
-                currentPage : response.data.currentPage
+                currentPage : response.data.currentPage,
+                url : this.props.match.params.id
             });
             
         });
@@ -44,7 +46,7 @@ class Category extends Component {
 
     componentWillReceiveProps(nextProps){
         if (nextProps.match.params.id !== this.props.match.params.id) {
-            axios.get(`category-data/${this.props.match.params.id}`)
+            axios.get(`category-data/${nextProps.match.params.id}`)
             .then(response => {
                 this.setState({
                     cartItems : response.data.cart,
@@ -52,7 +54,8 @@ class Category extends Component {
                     items: response.data.products,
                     pages : response.data.pages,
                     bestSale : response.data.best,
-                    currentPage : response.data.currentPage
+                    currentPage : response.data.currentPage,
+                    url : nextProps.match.params.id
                 });
                 
             });
@@ -74,9 +77,9 @@ class Category extends Component {
     }
 
     paginate = (query) => {
-        console.log('total page', this.state.pages);
-        console.log('query page', query);
-        axios.get(`category-data/${this.props.match.params.id}?pages=${query}`)
+
+        console.log(this.state.url);
+        axios.get(`category-data/${this.state.url}?pages=${query}`)
         .then(response => {
             this.setState({
                 cartItems : response.data.cart,
@@ -97,18 +100,27 @@ class Category extends Component {
         if(this.state.items.length !== 0){
             let items = _.chunk(this.state.items, 3);
             let reducerLine = (arr) => {
-                    return arr.map((item) => {
-                        return (
-                            <div key={item._id}>
-                                <CategoryItem infor = { item } addcart = { this.addToCart }/>
-                            </div>
-                        )
-                    });
+                    if(arr !== undefined){
+                        return arr.map((item) => {
+                            return (
+                                <div key={item._id}>
+                                    <CategoryItem infor = { item } addcart = { this.addToCart }/>
+                                </div>
+                            )
+                        });
+                    }
             }
             lineOne = reducerLine(items[0]);
             lineTwo = reducerLine(items[1]);
             lineThree = reducerLine(items[2]);
         }
+
+        let list = [];
+        for(var i=1; i<= this.state.pages; ++i){
+            let page = i;
+            list.push(<li key={i} onClick={ () => this.paginate(page) }><span>{i}</span></li>);
+        }
+
 
         return (
                 <Aux>
@@ -131,10 +143,11 @@ class Category extends Component {
                                     {lineThree}
                                 <div className="clearfix"> </div>
                             </div>
-                            <Paginate 
-                                    totalPages = { this.state.pages } 
-                                    currentPage = { this.state.currentPage }
-                                    paginate = {this.paginate.bind(this) }/>
+                            <div className="col-md-12">
+                                <ul className="pagination pagination-sm">
+                                    {list}
+                                </ul>
+                            </div>
                         </div>
                         <div className="col-md-3 product-bottom">
                             <div className=" rsidebar span_1_of_left">

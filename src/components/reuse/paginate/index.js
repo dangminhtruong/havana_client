@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class Paginate extends Component {
     render(){
-
         let list = [];
         for(var i=1; i<= this.props.totalPages; ++i){
             let page = i;
