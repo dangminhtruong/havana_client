@@ -25,7 +25,8 @@ class Category extends Component {
         items : [],
         bestSale : [],
         pages : 1,
-        url : null
+        url : null,
+        currentPage : 1
     }
 
     componentDidMount () {
@@ -77,8 +78,6 @@ class Category extends Component {
     }
 
     paginate = (query) => {
-
-        console.log(this.state.url);
         axios.get(`category-data/${this.state.url}?pages=${query}`)
         .then(response => {
             this.setState({
@@ -116,9 +115,16 @@ class Category extends Component {
         }
 
         let list = [];
-        for(var i=1; i<= this.state.pages; ++i){
+        for(var i=1; i<= this.state.pages; i++){
             let page = i;
-            list.push(<li key={i} onClick={ () => this.paginate(page) }><span>{i}</span></li>);
+            if(i == this.state.currentPage){
+                let style = {
+                    color : 'red'
+                }
+                list.push(<li key={i} onClick={ () => this.paginate(page) }><span style={style}>{i}</span></li>);
+            }else{
+                list.push(<li key={i} onClick={ () => this.paginate(page) }><span>{i}</span></li>);
+            }
         }
 
 
