@@ -17,6 +17,8 @@ class Details extends Component {
     constructor() {
         super();
         this.show = notify.createShowQueue();
+        this.handleChangeSize = this.handleChangeSize.bind(this);
+        this.handleChangeColor = this.handleChangeColor.bind(this);
     }
 
     state = {
@@ -24,37 +26,37 @@ class Details extends Component {
         related :  [],
         cartItems : 0,
         category : [],
-        bestSaller : []
+        bestSaller : [],
+        color : '' ,
+        size : ''
     }
 
     addToCart =  (productId) => {
         axios.post(`/shoping-cart/add/${productId}`, {
-            color : '#ffff',
-            size : 'XXl'
+            color : this.state.color,
+            size : this.state.size
         })
         .then((response) => {
             this.setState({
                 cartItems : response.data.cart_items
             });
-            this.show('Add cart successfull !', 'success', 3000);
+            this.show('Add cart successfull !', 'success', 2000);
         })
         .catch((error) => {
-            console.log(error);
+            throw new error;
         });  
     }
-
-
-
     componentDidMount () {
          axios.get(`/product-data/${this.props.match.params.id}`)
         .then((response) => {
-            
             this.setState({
                 currentInfor : response.data.product,
                 related : response.data.related_product,
                 category : response.data.category,
                 cartItems : response.data.cart,
-                bestSaller : response.data.best_sales
+                bestSaller : response.data.best_sales,
+                color : _.head(response.data.product.colors).code,
+                size :  _.head(response.data.product.size).code,
             });
         });
     }
@@ -63,16 +65,26 @@ class Details extends Component {
         if (nextProps.match.params.id !== this.props.match.params.id) {
             axios.get(`/product-data/${nextProps.match.params.id}`)
             .then((response) => {
-                console.log(response.data.product);
                 this.setState({
                     currentInfor : response.data.product,
                     related : response.data.related_product,
                     category : response.data.category,
                     cartItems : response.data.cart,
-                    bestSaller : response.data.best_sales
+                    bestSaller : response.data.best_sales,
+                    color : _.head(response.data.product.colors).code,
+                    size :  _.head(response.data.product.size).code,
                 });
             });
         }
+    }
+
+    handleChangeSize(event){
+        this.setState({size: event.target.value});
+
+    }
+
+    handleChangeColor(event){
+        this.setState({color: event.target.value});
     }
 
     render() {
@@ -80,7 +92,8 @@ class Details extends Component {
         let colors = null;
         let sizes = null;
         let imgDetails = null;
-
+        let defaultSize = (this.state.currentInfor.size) ? _.head(this.state.currentInfor.size).code : 'XXL';
+;
         const settings = {
             dots: true,
             dotsClass: 'slick-dots slick-thumb',
@@ -106,15 +119,15 @@ class Details extends Component {
                     color : color.code
                 };
                 return (
-                    <option style={inlineStyle} key={color.code}>color</option>
+                    <option style={inlineStyle} value={color.code} key={color.code}>color</option>
                 )
             });
           }
 
           if(! _.isEmpty(this.state.currentInfor.size)){
-            sizes = this.state.currentInfor.size.map((size) => {
+            sizes = this.state.currentInfor.size.map((size, index) => {
                 return (
-                    <option key={size.code}>{ size.code }</option>
+                    <option key={size.code} value={size.code} >{ size.code }</option>
                 )
             });
           }
@@ -123,7 +136,7 @@ class Details extends Component {
           if(! _.isEmpty(this.state.currentInfor.image_details)){
             imgDetails = this.state.currentInfor.image_details.map((img) => {
                 return (
-                    <div><img key={img} src={`${config.BASE_API_URL}img/${img}`} height="300px"/></div>
+                    <div key={img}><img src={`${config.BASE_API_URL}img/${img}`} height="300px"/></div>
                 )
             });
           }
@@ -172,13 +185,13 @@ class Details extends Component {
                             <ul>
                                 <li>
                                     Size:
-                                    <select>
+                                    <select value={this.state.size} onChange={this.handleChangeSize}>
                                         { sizes }
                                     </select>
                                 </li>
                                 <li>
                                     Color:
-                                    <select>
+                                    <select value={ this.state.color }  onChange={this.handleChangeColor}>
                                        { colors }
                                     </select>
                                 </li>

@@ -955,13 +955,19 @@ a.at-in {
 	padding:1em 0 0;
 }
 .check input[type="text"]{
-    width: 76%;
+  width: 76%;
   padding: 0.3em;
   margin: 1em 0;
   background: #fff;
   outline: none;
   text-align: center;
-   border: 1px solid #000;
+  border: 1px solid #000;
+}
+
+.custom{
+  width: 76%;
+  border: 1px solid #000;
+  border-radius: 0 !important;
 }
 .check{
 	width:6%;
