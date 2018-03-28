@@ -83,8 +83,8 @@ class Details extends Component {
 
     }
 
-    handleChangeColor(event){
-        this.setState({color: event.target.value});
+    handleChangeColor(code){
+        this.setState({color: code});
     }
 
     render() {
@@ -114,13 +114,19 @@ class Details extends Component {
           }
 
           if(! _.isEmpty(this.state.currentInfor.colors)){
-            colors = this.state.currentInfor.colors.map((color) => {
-                let inlineStyle = {
-                    color : color.code
-                };
+            colors = this.state.currentInfor.colors.map((color, index) => {
+                let style = {
+                    background: color.code,
+                }
+
                 return (
-                    <option style={inlineStyle} value={color.code} key={color.code}>color</option>
-                )
+                    <label className="containerr" key={ index  }>
+                            <input type="radio" 
+                            name="color" defaultChecked={ ( index === 0 ) ? true : false }
+                            onClick={() => this.handleChangeColor(color.code)}/>
+                            <span className="checkmark" style={ style }></span>
+                    </label>
+                );
             });
           }
 
@@ -191,9 +197,9 @@ class Details extends Component {
                                 </li>
                                 <li>
                                     Color:
-                                    <select value={ this.state.color }  onChange={this.handleChangeColor}>
+                                   
                                        { colors }
-                                    </select>
+                                    
                                 </li>
                             </ul>
                             </div>

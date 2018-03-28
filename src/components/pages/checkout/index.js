@@ -45,14 +45,18 @@ class Checkout extends Component {
         });
     }
 
-    handleChangeColor(e, id){
-        axios.get(`shoping-cart/cart/update-color/${id}?color=${e.target.value}`)
+    handleChangeColor(color, id){
+         axios.post('shoping-cart/update-color', {
+             colorUpdate :  color,
+             currentId : id
+         })
         .then((response) => {
             console.log(response.data);
             this.setState({
                 products : response.data.products
             });
-        });
+        }); 
+        
     }
 
     handleChangeQuantity(){
@@ -63,23 +67,27 @@ class Checkout extends Component {
        let list = null;
        if(this.state.products.length !== 0){
         list = this.state.products.map(item => {
-            let sizeAvail = item.sizeAvai.map(size => {
+            let itemId = item.product_id;
+            let currentColor = item.color;
+
+            let sizeAvail = item.sizeAvai.map((size, index) => {
                 return (
-                    <option value={ size.code } key={size.code}>{ size.code }</option>
+                    <option value={ size.code } key={index}>{ size.code }</option>
                 );
             });
 
-            let colorAvai = item.colorAvai.map(color => {
+            let colorAvai = item.colorAvai.map((color, index) => {
                 let style = {
-                    width: '100%',
-                    height: '10px',
                     background: color.code,
-                    color : color.code,
-                    important : true
                 }
 
                 return (
-                    <option value={ color.code } key={color.code} style={ style }><b>***</b></option>
+                    <label className="containerr" key={ index  }>
+                            <input type="radio" 
+                            name={ itemId } defaultChecked={ ( currentColor == color.code ) ? true : false }
+                            onClick={() => this.handleChangeColor(color.code, itemId)}/>
+                            <span className="checkmark" style={ style }></span>
+                    </label>
                 );
             });
 
@@ -102,11 +110,8 @@ class Checkout extends Component {
                             { sizeAvail }
                         </select>
                     </td>
-                    <td>
-                        <select className="form-control custom" name="color" value={ item.color } style = { { background : `${item.color}`} }  
-                                onChange={(e, id) => this.handleChangeColor(e, item.product_id)}>
-                            { colorAvai }
-                        </select>
+                    <td className="colors">
+                        { colorAvai }
                     </td>
                     <td>${ (item.promo_price) ? item.promo_price : item.unit_price}</td>
                     <td>${ (item.promo_price) ? item.product_quantity * item.promo_price: item.product_quantity * item.unit_price }</td>
