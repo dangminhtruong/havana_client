@@ -37,7 +37,7 @@ class Checkout extends Component {
     }
 
     handleChangeSize(e, id) {
-        axios.get(`shoping-cart/cart/update-size/${id}?size=${e.target.value}`)
+        axios.get(`shoping-cart/update-size/${id}?size=${e.target.value}`)
         .then((response) => {
             this.setState({
                 products : response.data.products
