@@ -63,6 +63,8 @@ class Checkout extends Component {
         
     }
 
+    
+
     render() {
        let list = null;
        if(this.state.products.length !== 0){
