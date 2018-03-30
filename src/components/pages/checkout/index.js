@@ -11,9 +11,8 @@ class Checkout extends Component {
     constructor() {
         super();
         this.show = notify.createShowQueue();
-        this.handleChangeSize = this.handleChangeSize.bind(this);
         this.handleChangeColor = this.handleChangeColor.bind(this);
-        this.handleChangeQuantity = this.handleChangeColor.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     state = {
@@ -36,22 +35,12 @@ class Checkout extends Component {
         });
     }
 
-    handleChangeSize(e, id) {
-        axios.get(`shoping-cart/update-size/${id}?size=${e.target.value}`)
-        .then((response) => {
-            this.setState({
-                products : response.data.products
-            });
-        });
-    }
-
     handleChangeColor(color, id){
          axios.post('shoping-cart/update-color', {
              colorUpdate :  color,
              currentId : id
          })
         .then((response) => {
-            console.log(response.data);
             this.setState({
                 products : response.data.products
             });
@@ -59,8 +48,23 @@ class Checkout extends Component {
         
     }
 
-    handleChangeQuantity(){
-        
+    handleChange(event, id){
+        const target = event.target;
+        if(target.name === 'size'){
+            axios.get(`shoping-cart/update-size/${id}?size=${target.value}`)
+            .then((response) => {
+                this.setState({
+                    products : response.data.products
+                });
+            });
+        }else if(target.name === 'quantity'){
+            axios.get(`shoping-cart/update-quantity/${id}?newQuantity=${target.value}`)
+            .then((response) => {
+                this.setState({
+                    products : response.data.products
+                });
+            });
+        }
     }
 
     render() {
@@ -103,10 +107,11 @@ class Checkout extends Component {
                         <div className="clearfix"> </div>
                     </td>
                     <td className="check">
-                        <input type="text" defaultValue={ item.product_quantity  }/>
+                        <input type="text" name="quantity" defaultValue={ item.product_quantity  } onChange={(event) => this.handleChange(event, item.product_id) }/>
                     </td>
                     <td>
-                        <select className="form-control custom" name="size" value={item.size} onChange={(e, id) => this.handleChangeSize(e, item.product_id)} >
+                        <select className="form-control custom" name="size" value={item.size} 
+                        onChange={(event) => this.handleChange(event, item.product_id )} >
                             { sizeAvail }
                         </select>
                     </td>
