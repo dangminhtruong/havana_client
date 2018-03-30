@@ -3,6 +3,7 @@ import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import Aux from '../../../hocs/Aux';
 import axios from '../../../axios';
+import { Link } from 'react-router-dom';
 import config from '../../../config';
 import Notifications, {notify} from 'react-notify-toast';
 
@@ -21,7 +22,8 @@ class Checkout extends Component {
         products : [],
         tmpQuantity : 0,
         tmpSize : '',
-        tmpColor : ''
+        tmpColor : '',
+        user : null
     }
 
     componentDidMount(){
@@ -30,7 +32,8 @@ class Checkout extends Component {
             this.setState({
                 category : response.data.category,
                 cartItems : response.data.cart,
-                products : response.data.products
+                products : response.data.products,
+                user : response.data.user
             });
         });
     }
@@ -98,9 +101,9 @@ class Checkout extends Component {
             return (
                 <tr key={item.product_id}>
                     <td className="ring-in">
-                        <a href="single.html" className="at-in">
+                        <Link to ={ `/details/${item.product_id}`} className="at-in">
                             <img src= { `${config.BASE_API_URL}img/${item.product_img}` } className="img-responsive" alt=""/>
-                        </a>
+                        </Link>
                         <div className="sed">
                             <h5>{ item.product_name }</h5>
                         </div>
@@ -124,8 +127,6 @@ class Checkout extends Component {
             )
         });
        }
-
-
         return (
             <Aux>
             <Header cart = {this.state.cartItems}
@@ -148,7 +149,9 @@ class Checkout extends Component {
                             { list }
                         </tbody>
                     </table>
-                    <a href="#" className="to-buy">PROCEED TO BUY</a>
+                    { (this.state.user) ? 
+                      <Link to="/login" exact className="to-buy">PROCEED TO BUY</Link> : 
+                      <Link to="/login" exact className="to-buy">LOGIN TO BUY</Link> }
                     <div className="clearfix"> </div>
                 </div>
             </div>

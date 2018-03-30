@@ -14,7 +14,9 @@ class BestSeller extends Component {
 						</Link>	
 					</div>
 					<div className=" fashion-grid1">
-						<h6 className="best2"><a href="single.html" >{ item.name }</a></h6>
+						<h6 className="best2">
+							<Link to ={ `/details/${item._id}` }>{ item.name }</Link>
+						</h6>
 						<span className=" price-in1"> ${ (item.promo_price !== 0) ? item.promo_price :  item.unit_price}</span>
 					</div>	
 					<div className="clearfix"> </div>
