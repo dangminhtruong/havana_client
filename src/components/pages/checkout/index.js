@@ -63,7 +63,7 @@ class Checkout extends Component {
         
     }
 
-    
+
 
     render() {
        let list = null;
