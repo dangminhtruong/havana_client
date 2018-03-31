@@ -8,6 +8,7 @@ import config from '../../../config';
 import Notifications, {notify} from 'react-notify-toast';
 import Form from './formcheckout';
 import List from './lists';
+import Receipt from './receipt';
 
 class Checkout extends Component {
 
@@ -20,7 +21,7 @@ class Checkout extends Component {
         category : [],
         cartItems : 0,
         user : null,
-        showItems : true
+        show : 'items'
     }
 
     componentDidMount(){
@@ -35,9 +36,9 @@ class Checkout extends Component {
         });
     }
     
-    switchShow = () => {
+    switchShow = (type) => {
         this.setState({
-            showItems : !this.state.showItems
+            show : type
         })
     }
 
@@ -48,9 +49,10 @@ class Checkout extends Component {
             <Header cart = {this.state.cartItems}
                 menu = { this.state.category }/>
             { 
-                (this.state.showItems) 
-                ? <List user = { this.state.user } switchShow = { this.switchShow }/>  
-                :  <Form switchShow = { this.switchShow }/> 
+                (this.state.show === 'items') 
+                ? <List user = { this.state.user } switchShow = { this.switchShow }/> 
+                : (this.state.show === 'form') ? <Form switchShow = { this.switchShow }/> 
+                : <Receipt/>
             }
             <Footer/>
             </Aux>

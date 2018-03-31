@@ -24,6 +24,7 @@ class Form extends Component {
 		})
 		.then((resporn) => {
 			console.log(resporn);
+			this.props.switchShow('thanks');
 		});
 	}
 
@@ -40,7 +41,7 @@ class Form extends Component {
                 </div>
 				<div className="clearfix"> </div>
 				<button onClick = { this.submitOrder } className="to-buy">SUBMIT</button>	
-				<button onClick = { this.props.switchShow } className="btn btn-link">BACK</button>
+				<button onClick = { () => this.props.switchShow('items') } className="btn btn-link">BACK</button>
 				<div className="clearfix"> </div>
 			</div>
 		</div>

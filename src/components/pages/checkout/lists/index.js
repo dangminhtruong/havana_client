@@ -135,7 +135,7 @@ class List extends Component {
                         </tbody>
                     </table>
                     { (this.props.user) ? 
-                    <button onClick = { this.props.switchShow } className="to-buy">PROCEED TO BUY</button> : 
+                    <button onClick = { () => this.props.switchShow('form') } className="to-buy">PROCEED TO BUY</button> : 
                     <Link to="/login" className="to-buy">LOGIN TO BUY</Link> }
                     <div className="clearfix"> </div>
                 </div>
