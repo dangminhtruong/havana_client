@@ -3,7 +3,6 @@ import config from '../../../config';
 import { Link } from 'react-router-dom';
 
 class relatedItem extends Component {
-
 	render() {
 		return (
 			<div className="col-md-4 col-md3">
@@ -26,7 +25,6 @@ class relatedItem extends Component {
 			</div>
 		);
 	}
-
 }
 
 export default relatedItem;

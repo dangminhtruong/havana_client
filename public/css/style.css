@@ -996,7 +996,23 @@ a.to-buy{
 a.to-buy:hover{
   background: #000;
 }
+
 /*--//checkout--*/
+button.to-buy{
+	padding: 0.3em 0.7em;
+  color: #FFF;
+  background: #52D0C4;
+  margin: 0.5em 0 0;
+  font-size: 1em;
+  display: inline-block;
+  line-height: 1.6em;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+button.to-buy:hover{
+  background: #000;
+}
 /*--typo--*/
 h1.typo1 {
     font-size: 3em;
@@ -1504,6 +1520,10 @@ td {
   font-size: 0.8em;
 }
 a.to-buy {
+  margin: 0;
+  font-size: 0.8em;
+}
+button.to-buy {
   margin: 0;
   font-size: 0.8em;
 }
