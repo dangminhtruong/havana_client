@@ -1975,7 +1975,11 @@ h1.typo1 {
   border-bottom: 5px solid rgba(26, 188, 156, 0.3);
 }
 .thankcontent {
-  font-family: "Lato", sans-serif;
-  font-weight: 600;
+  font-family: "Monsterrat", sans-serif;
   color: #EEE;
+  
+}
+.redmine{
+  color: peru;
+  font-size: 10px;
 }

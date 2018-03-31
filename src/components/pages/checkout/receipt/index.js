@@ -9,14 +9,13 @@ class Receipt extends Component {
 		return (
 			<div className="container">
 			<div className="check-out">
-                    <h1 className="thanklorder">
-                        <underline>Thank you!</underline>
-                    </h1>
-                    <h3 className="thankcontent">
-                        For being such an awesome person. 
-                        The &lt;h3&gt; tag can hold quite a lot of text inside itself before it makes a new line.
-                        Also, try hovering over the Thank you-text!
-                    </h3>
+                    <div className="text-xs-center">
+                    <h1 className="display-3">Thank You!</h1>
+                    <p className="lead">
+						<i>Đặt hàng thành công! Chân thành cảm ơn bạn đã ủng hộ cửa hàng chúng tôi...</i> <br/>
+                        <strong className="redmine">Vui lòng kiểm tra email để xác nhận đơn hàng của bạn.</strong> 
+                    </p>
+                    </div>
 			</div>
 		</div>
 		);
