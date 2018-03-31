@@ -89,7 +89,7 @@ class Login extends Component {
                                     </div>
                                 </form>
                             </div>	
-                                <div className="col-md-6 login-left">
+                            <div className="col-md-6 login-left">
                                 <h4>NEW CUSTOMERS</h4>
                                 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
                                 <NavLink to="/signup" className="acount-btn" exact>Create an Account</NavLink>

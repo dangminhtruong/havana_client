@@ -19,11 +19,8 @@ class Checkout extends Component {
     state = {
         category : [],
         cartItems : 0,
-        tmpQuantity : 0,
-        tmpSize : '',
-        tmpColor : '',
         user : null,
-        processToBuy : false
+        showItems : true
     }
 
     componentDidMount(){
@@ -38,6 +35,11 @@ class Checkout extends Component {
         });
     }
     
+    switchShow = () => {
+        this.setState({
+            showItems : !this.state.showItems
+        })
+    }
 
     render() {
        
@@ -45,7 +47,11 @@ class Checkout extends Component {
             <Aux>
             <Header cart = {this.state.cartItems}
                 menu = { this.state.category }/>
-            <List user = { this.state.user }/>
+            { 
+                (this.state.showItems) 
+                ? <List user = { this.state.user } switchShow = { this.switchShow }/>  
+                :  <Form switchShow = { this.switchShow }/> 
+            }
             <Footer/>
             </Aux>
         )

@@ -1010,7 +1010,23 @@ button.to-buy{
   text-decoration: none;
   border: none;
 }
+
+button.to-buy-back{
+	padding: 0.3em 0.7em;
+  color: #FFF;
+  background: #f44336;
+  margin: 0.5em 0 0 10px;
+  font-size: 1em;
+  display: inline-block;
+  line-height: 1.6em;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
 button.to-buy:hover{
+  background: #000;
+}
+button.to-buy-back:hover{
   background: #000;
 }
 /*--typo--*/

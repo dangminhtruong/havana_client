@@ -97,7 +97,8 @@ class List extends Component {
                          <div className="clearfix"> </div>
                      </td>
                      <td className="check">
-                         <input type="text" name="quantity" defaultValue={ item.product_quantity  } onChange={(event) => this.handleChange(event, item.product_id) }/>
+                         <input type="text" name="quantity" defaultValue={ item.product_quantity  } 
+                         onChange={(event) => this.handleChange(event, item.product_id) }/>
                      </td>
                      <td>
                          <select className="form-control custom" name="size" value={item.size} 
@@ -134,7 +135,7 @@ class List extends Component {
                         </tbody>
                     </table>
                     { (this.props.user) ? 
-                    <Link to="/login" className="to-buy">PROCEED TO BUY</Link> : 
+                    <button onClick = { this.props.switchShow } className="to-buy">PROCEED TO BUY</button> : 
                     <Link to="/login" className="to-buy">LOGIN TO BUY</Link> }
                     <div className="clearfix"> </div>
                 </div>
