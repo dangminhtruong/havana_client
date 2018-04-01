@@ -37,6 +37,15 @@ class List extends Component {
        
    }
 
+   handleRemove(id){
+        axios.get(`shoping-cart/remove/${id}`)
+        .then((response) => {
+            this.setState({
+                products : response.data.products
+            });
+        }); 
+   }
+
    handleChange(event, id){
        const target = event.target;
        if(target.name === 'size'){
@@ -111,6 +120,11 @@ class List extends Component {
                      </td>
                      <td>${ (item.promo_price) ? item.promo_price : item.unit_price}</td>
                      <td>${ (item.promo_price) ? item.product_quantity * item.promo_price: item.product_quantity * item.unit_price }</td>
+                     <td>
+                     <button type="button" className="btn btn-default btn-sm" onClick={ () => this.handleRemove(item.product_id) }>
+                        <span className="glyphicon glyphicon-trash"></span>
+                    </button>
+                     </td>
                  </tr>
              )
          });
@@ -128,6 +142,7 @@ class List extends Component {
                                 <th>Color</th>
                                 <th>Prices</th>
                                 <th>Subtotal</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
