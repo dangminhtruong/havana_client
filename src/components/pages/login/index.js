@@ -25,16 +25,13 @@ class Login extends Component {
     }
 
     login = () => {
-        console.log(this.state.username);
         axios.post('/login/client', {
             username : this.state.username,
             password : this.state.password
         })
-        .then((responese) => {
-
-            console.log(responese.data);
-
-            if(responese.data.status !== 200){
+        .then((response) => {
+            console.log(response.data.status);
+            if(response.data.status === 401){
                 this.setState({
                     showAlert : true
                 });
@@ -58,15 +55,6 @@ class Login extends Component {
     }
 
     render() {
-        let showAlert = '';
-        if(this.state.showAlert){
-            return (
-                <small id="emailHelp" className="form-text text-muted">
-                    <p className="alertLogin">Invalid username or password!</p>
-                </small>
-            )
-        }
-
         return (
             <Aux>
                 <Header cart = {this.state.cartItems}
@@ -79,17 +67,19 @@ class Login extends Component {
                                 <form>
                                     <span>Email Address</span>
                                     <input type="text" autoComplete='' value={this.state.username} onChange={this.setUserName.bind(this)}/> 
-                                
                                     <span>Password</span>
-                                    <input type="text" autoComplete='' value={this.state.password} onChange={this.setPassWord.bind(this)}/> 
-                                    { showAlert }
+                                    <input type="password" style={ { width: '96%',padding: '10px', } } autoComplete='' value={this.state.password} onChange={this.setPassWord.bind(this)}/> 
+                                   { (this.state.showAlert) ?
+                                     <small id="emailHelp" className="form-text text-muted">
+                                            <p className="alertLogin">Invalid username or password!</p>
+                                    </small> : null }
                                     <div className="word-in">
                                         <a className="forgot" href="#">Forgot Your Password? </a>
                                         <button type="button" onClick={this.login}>Login</button>
                                     </div>
                                 </form>
                             </div>	
-                                <div className="col-md-6 login-left">
+                            <div className="col-md-6 login-left">
                                 <h4>NEW CUSTOMERS</h4>
                                 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
                                 <NavLink to="/signup" className="acount-btn" exact>Create an Account</NavLink>

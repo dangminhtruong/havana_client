@@ -996,7 +996,39 @@ a.to-buy{
 a.to-buy:hover{
   background: #000;
 }
+
 /*--//checkout--*/
+button.to-buy{
+	padding: 0.3em 0.7em;
+  color: #FFF;
+  background: #52D0C4;
+  margin: 0.5em 0 0;
+  font-size: 1em;
+  display: inline-block;
+  line-height: 1.6em;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+
+button.to-buy-back{
+	padding: 0.3em 0.7em;
+  color: #FFF;
+  background: #f44336;
+  margin: 0.5em 0 0 10px;
+  font-size: 1em;
+  display: inline-block;
+  line-height: 1.6em;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+button.to-buy:hover{
+  background: #000;
+}
+button.to-buy-back:hover{
+  background: #000;
+}
 /*--typo--*/
 h1.typo1 {
     font-size: 3em;
@@ -1507,6 +1539,10 @@ a.to-buy {
   margin: 0;
   font-size: 0.8em;
 }
+button.to-buy {
+  margin: 0;
+  font-size: 0.8em;
+}
 .single {
   padding: 2em 0;
 }
@@ -1919,4 +1955,31 @@ h1.typo1 {
 .colors{
   text-align: left;
   vertical-align: inherit;
+}
+
+#wrapperThank {
+  background: #52D0C4;
+}
+.thanklorder {
+  color: #EEE;
+  text-shadow: -1px -2px 3px rgba(17, 17, 17, 0.3);
+  text-align: center;
+  font-family: "Monsterrat", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 80px;
+  margin-bottom: -5px;
+}
+.thanklorder  underline {
+  border-top: 5px solid rgba(26, 188, 156, 0.3);
+  border-bottom: 5px solid rgba(26, 188, 156, 0.3);
+}
+.thankcontent {
+  font-family: "Monsterrat", sans-serif;
+  color: #EEE;
+  
+}
+.redmine{
+  color: peru;
+  font-size: 10px;
 }
