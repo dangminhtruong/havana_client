@@ -21,8 +21,6 @@ class Header extends Component {
 		});
 	}
 
-
-
 	render() {
 		let menCategory = null;
 		let womenCategory = null;
@@ -32,7 +30,7 @@ class Header extends Component {
 			user = (
 				<p className="log">
 					<NavLink to="/profile" exact>Hi !</NavLink>
-					<span> </span><NavLink to="/signup" exact>
+					<span> </span><NavLink to="/" exact>
 					<span className="glyphicon glyphicon-user"></span> { this.state.user.username }</NavLink>
 				</p>
 			)

@@ -30,7 +30,6 @@ class Login extends Component {
             password : this.state.password
         })
         .then((response) => {
-            console.log(response.data.status);
             if(response.data.status === 401){
                 this.setState({
                     showAlert : true
@@ -42,7 +41,6 @@ class Login extends Component {
     }
 
     setUserName = (event) => {
-        console.log(event.target.username);
         this.setState({
             username : event.target.value
         });
