@@ -153,7 +153,7 @@ class Header extends Component {
 									</div>
 								</li>
 								<li><a href="typo.html">Blog</a></li>
-								<li><a className="color6" href="contact.html">Conact</a></li>
+								<li><NavLink className="color6" to="/chat" exact>Chat with us</NavLink></li>
 							</ul>
 						</div>
 						<div className="col-sm-2 search">
