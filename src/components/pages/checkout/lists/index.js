@@ -129,33 +129,47 @@ class List extends Component {
              )
          });
         }
-		return (
-            <div className="container">
-                <div className="check-out">
-                    <h1>Checkout</h1>
-                    <table >
-                        <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Qty</th>
-                                <th>Size</th>
-                                <th>Color</th>
-                                <th>Prices</th>
-                                <th>Subtotal</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            { list }
-                        </tbody>
-                    </table>
-                    { (this.props.user) ? ( this.state.products.length !== 0 ) ?
-                    <button onClick = { () => this.props.switchShow('form') } className="to-buy">PROCEED TO BUY</button> : 
-                    <Link to="/" className="to-buy">EMPTY CART</Link> :  <Link to="/login" className="to-buy">LOGIN TO BUY</Link> }
-                    <div className="clearfix"> </div>
+		if(list !== null){
+            return (
+                <div className="container">
+                    <div className="check-out">
+                        <h1>Checkout</h1>
+                        <table >
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Qty</th>
+                                    <th>Size</th>
+                                    <th>Color</th>
+                                    <th>Prices</th>
+                                    <th>Subtotal</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                { list }
+                            </tbody>
+                        </table>
+                        { (this.props.user) ? 
+                        <button onClick = { () => this.props.switchShow('form') } className="to-buy">PROCEED TO BUY</button> : 
+                        <Link to="/login" className="to-buy">LOGIN TO BUY</Link> }
+                        <div className="clearfix"> </div>
+                    </div>
                 </div>
-            </div>
-		);
+            );
+        }
+        return(
+            <div className="container" style={ { minHeight : '60vh', marginTop : '10vh' } }>
+                <div className="check-out">
+                    <div className="text-xs-center">
+                    <h1 className="display-3">EMPTY CART!</h1>
+                    <p className="lead">
+                        <i>Bạn chưa có sản phẩm nào trong giỏ hàng</i> <br/>
+                    </p>
+                    </div>
+                </div>
+		    </div>
+        )
 	}
 }
 
