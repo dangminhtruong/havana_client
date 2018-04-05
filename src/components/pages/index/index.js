@@ -6,12 +6,14 @@ import _ from 'lodash';
 import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import Notifications, {notify} from 'react-notify-toast';
+import { subscribeToProduct } from '../../../helpers/subscribeToProduct';
 
 class Index extends Component {
 
     constructor() {
         super();
         this.show = notify.createShowQueue();
+        subscribeToProduct((err, data) => { this.setState({ newProducts : data.news }) });
     }
 
     state = {

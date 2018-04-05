@@ -13,7 +13,8 @@
     "react-notify-toast": "^0.4.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
-    "react-slick": "^0.20.0"
+    "react-slick": "^0.20.0",
+    "socket.io-client": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
