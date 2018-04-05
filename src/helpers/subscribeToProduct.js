@@ -1,5 +1,7 @@
 import openSocket from 'socket.io-client';
-const  socket = openSocket('http://localhost:3000');
+import config from '../config';
+
+const  socket = openSocket(`${config.BASE_API_URL}`);
 
 
 function subscribeToProduct(callback) {
