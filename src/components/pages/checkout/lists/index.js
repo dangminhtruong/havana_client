@@ -149,9 +149,9 @@ class List extends Component {
                             { list }
                         </tbody>
                     </table>
-                    { (this.props.user) ? 
+                    { (this.props.user) ? ( this.state.products.length !== 0 ) ?
                     <button onClick = { () => this.props.switchShow('form') } className="to-buy">PROCEED TO BUY</button> : 
-                    <Link to="/login" className="to-buy">LOGIN TO BUY</Link> }
+                    <Link to="/" className="to-buy">EMPTY CART</Link> :  <Link to="/login" className="to-buy">LOGIN TO BUY</Link> }
                     <div className="clearfix"> </div>
                 </div>
             </div>
