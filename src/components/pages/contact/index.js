@@ -13,15 +13,19 @@ class ChatBox extends Component {
 
     state = {
         cartItems : 0,
-        category : []
+        category : [],
+        user : null,
+        message :  [],
+        onlineAdmins : []
     }
 
     componentDidMount(){
-        axios.get('category')
+        axios.get('chatbox')
         .then((responese) => {
             this.setState({
                 category : responese.data.category,
-                cartItems : responese.data.cart
+                cartItems : responese.data.cart,
+                user : responese.data.user
             });
         });
     }
