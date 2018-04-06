@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ProductItem from '../../reuse/single_product';
 import BestSeller from '../../reuse/best_seller';
 import Tags from '../../reuse/tags';
 import CategoryItem from './CategoryItem';
@@ -10,7 +9,6 @@ import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import _ from 'lodash';
 import Notifications, {notify} from 'react-notify-toast';
-import Paginate from '../../reuse/paginate';
 
 class Category extends Component {
 

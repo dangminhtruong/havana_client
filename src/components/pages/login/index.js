@@ -72,7 +72,7 @@ class Login extends Component {
                                             <p className="alertLogin">Invalid username or password!</p>
                                     </small> : null }
                                     <div className="word-in">
-                                        <a className="forgot" href="#">Forgot Your Password? </a>
+                                        <a className="forgot" >Forgot Your Password? </a>
                                         <button type="button" onClick={this.login}>Login</button>
                                     </div>
                                 </form>

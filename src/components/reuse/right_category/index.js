@@ -25,28 +25,28 @@ class RightCategory extends Component {
 			<div className=" rsidebar span_1_of_left">
 				<h3 className="cate">Categories</h3>
 				<ul className="menu-drop">
-					<li className="item1"><a href="#">Men </a>
+					<li className="item1"><a >Men </a>
 						<ul className="cute">
 							<li className="subitem1"><a href="single.html">Cute Kittens </a></li>
 							<li className="subitem2"><a href="single.html">Strange Stuff </a></li>
 							<li className="subitem3"><a href="single.html">Automatic Fails </a></li>
 						</ul>
 					</li>
-					<li className="item2"><a href="#">Women </a>
+					<li className="item2"><a >Women </a>
 						<ul className="cute">
 							<li className="subitem1"><a href="single.html">Cute Kittens </a></li>
 							<li className="subitem2"><a href="single.html">Strange Stuff </a></li>
 							<li className="subitem3"><a href="single.html">Automatic Fails </a></li>
 						</ul>
 					</li>
-					<li className="item3"><a href="#">Kids</a>
+					<li className="item3"><a >Kids</a>
 						<ul className="cute">
 							<li className="subitem1"><a href="single.html">Cute Kittens </a></li>
 							<li className="subitem2"><a href="single.html">Strange Stuff </a></li>
 							<li className="subitem3"><a href="single.html">Automatic Fails</a></li>
 						</ul>
 					</li>
-					<li className="item4"><a href="#">Accesories</a>
+					<li className="item4"><a >Accesories</a>
 						<ul className="cute">
 							<li className="subitem1"><a href="single.html">Cute Kittens </a></li>
 							<li className="subitem2"><a href="single.html">Strange Stuff </a></li>
@@ -54,7 +54,7 @@ class RightCategory extends Component {
 						</ul>
 					</li>
                             
-					<li className="item4"><a href="#">Shoes</a>
+					<li className="item4"><a >Shoes</a>
 						<ul className="cute">
 							<li className="subitem1"><a href="product.html">Cute Kittens </a></li>
 							<li className="subitem2"><a href="product.html">Strange Stuff </a></li>

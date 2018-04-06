@@ -171,15 +171,15 @@ class Details extends Component {
                             <p>{ this.state.currentInfor.descript }</p>
                             <div className="star-on">
                             <ul>
-                                <li><a href="#"><i className="glyphicon glyphicon-star"> </i></a></li>
-                                <li><a href="#"><i className="glyphicon glyphicon-star"> </i></a></li>
-                                <li><a href="#"><i className="glyphicon glyphicon-star"> </i></a></li>
-                                <li><a href="#"><i className="glyphicon glyphicon-star"> </i></a></li>
-                                <li><a href="#"><i className="glyphicon glyphicon-star"> </i></a></li>
+                                <li><a ><i className="glyphicon glyphicon-star"> </i></a></li>
+                                <li><a ><i className="glyphicon glyphicon-star"> </i></a></li>
+                                <li><a ><i className="glyphicon glyphicon-star"> </i></a></li>
+                                <li><a ><i className="glyphicon glyphicon-star"> </i></a></li>
+                                <li><a ><i className="glyphicon glyphicon-star"> </i></a></li>
                             </ul>
                             <div className="review">
-                                <a href="#"> 3 reviews </a>/    
-                                <a href="#">  Write a review</a>
+                                <a > 3 reviews </a>/    
+                                <a >  Write a review</a>
                             </div>
                             <div className="clearfix"> </div>
                             </div>
