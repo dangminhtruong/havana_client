@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import config from '../../../../config';
 
 class Messages extends Component {
-
     render() {
         let messages = null;
         if(this.props.messages.length !== 0){
@@ -22,7 +21,7 @@ class Messages extends Component {
             });
         }
         return (
-            <div className="messages">
+            <div className="messages" id="messages-container">
                 <ul>
                     { messages }
                 </ul>

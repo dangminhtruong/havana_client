@@ -8,15 +8,24 @@ import axios from '../../../axios';
 import SidePanel from './sidePannel';
 import Messages from './messages';
 import Profile from './profile';
+import $ from 'jquery';
 
 class ChatBox extends Component {
+    constructor() {
+        super();
+        this.handleSentMessage = this.handleSentMessage.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
     state = {
         cartItems : 0,
         category : [],
         user : null,
         messages :  [],
-        onlineStaff : []
+        onlineStaff : [],
+        sent : '',
+        targetUser : null,
+        showInput : false
     }
 
     componentDidMount(){
@@ -36,17 +45,46 @@ class ChatBox extends Component {
             userId : id
         })
         .then((response) => {
-            console.log(response);
            if(response.status !== 500 && response.data.messages !== null){
             this.setState({
-                messages : response.data.messages[0].messages
+                messages : response.data.messages[0].messages,
+                targetUser : id,
+                showInput : true
             });
            }else{
             this.setState({
-                messages : []
+                messages : [],
+                targetUser : id,
+                showInput : true
             });
            }
         });
+    }
+
+    handleSentMessage = (event) => {
+        let target = event.target;
+        let value = target.value;
+        let name = target.name;
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        axios.post('chatbox/add/message', {
+            curentId : this.state.user._id,
+            targetId :  this.state.targetUser,
+            username : this.state.user.username,
+            message : this.state.sent
+        })
+        .then((response) => {
+            console.log(response.data.messages);
+            this.setState({
+                messages : response.data.messages.messages,
+            });
+        });
+        event.target.reset();
     }
 
 	render() {
@@ -63,13 +101,19 @@ class ChatBox extends Component {
                         <div className="content">
                             <Profile user = {this.state.user}/>
                             <Messages messages = { this.state.messages } user = {this.state.user}/>
-                            <div className="message-input">
-                                <div className="wrap">
-                                <input type="text" placeholder="Write your message..." />
-                                <i className="fa fa-paperclip attachment" aria-hidden="true"></i>
-                                <button className="submit"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            {
+                                (this.state.showInput) ? 
+                                <div className="message-input">
+                                    <form onSubmit={this.handleSubmit}>
+                                        <div className="wrap">
+                                        <input type="text" placeholder="Write your message..." name="sent" onChange={this.handleSentMessage}/>
+                                        <i className="fa fa-paperclip attachment" aria-hidden="true"></i>
+                                        <button className="submit" type="submit"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
+                                : null
+                            }
                         </div>
                     </div>
                 </div>
