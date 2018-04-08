@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import config from '../../../../config';
 
 class Profile extends Component {
 
     render() {
         return (
             <div className="contact-profile">
-                <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-                <p>Harvey Specter</p>
+                <img src= { `${config.BASE_API_URL}img/${this.props.user.avata}` } alt="" />
+                <p>{ this.props.user.username }</p>
                 <div className="social-media">
                     <i className="fa fa-facebook" aria-hidden="true"></i>
                     <i className="fa fa-twitter" aria-hidden="true"></i>
