@@ -11,6 +11,7 @@ import config from '../../../config';
 import Related from './relatedItem';
 import Notifications, {notify} from 'react-notify-toast';
 import _ from 'lodash';
+import $ from 'jquery';
 
 class Details extends Component {
 
@@ -47,6 +48,7 @@ class Details extends Component {
         });  
     }
     componentDidMount () {
+        $('html, body').animate({scrollTop:0}, 'slow');
          axios.get(`/product-data/${this.props.match.params.id}`)
         .then((response) => {
             this.setState({
@@ -133,7 +135,7 @@ class Details extends Component {
           if(! _.isEmpty(this.state.currentInfor.size)){
             sizes = this.state.currentInfor.size.map((size, index) => {
                 return (
-                    <option key={size.code} value={size.code} >{ size.code }</option>
+                    <option key={index} value={size.code} >{ size.code }</option>
                 )
             });
           }
