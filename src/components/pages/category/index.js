@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ProductItem from '../../reuse/single_product';
 import BestSeller from '../../reuse/best_seller';
 import Tags from '../../reuse/tags';
 import CategoryItem from './CategoryItem';
@@ -10,7 +9,7 @@ import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import _ from 'lodash';
 import Notifications, {notify} from 'react-notify-toast';
-import Paginate from '../../reuse/paginate';
+import $ from 'jquery';
 
 class Category extends Component {
 
@@ -30,6 +29,7 @@ class Category extends Component {
     }
 
     componentDidMount () {
+        $('html, body').animate({scrollTop:0}, 'slow');
         axios.get(`category-data/${this.props.match.params.id}`)
         .then(response => {
             this.setState({
@@ -58,7 +58,6 @@ class Category extends Component {
                     currentPage : response.data.currentPage,
                     url : nextProps.match.params.id
                 });
-                
             });
         }
     }

@@ -87,7 +87,7 @@ class Index extends Component {
                     <div className="content">
                         <div className="container">
                             <div className="content-top">
-                                <h1>Recent Products</h1>
+                                <h1>New Products</h1>
                                 <div className="content-top1">
                                     { lineOneNews }
                                     <div className="clearfix"> </div>
