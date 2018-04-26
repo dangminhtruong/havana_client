@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import config from '../../../../config';
 import { Link } from 'react-router-dom';
 import axios from '../../../../axios';
+import Notifications, {notify} from 'react-notify-toast';
 
 class List extends Component {
 
     constructor() {
         super();
+        this.show = notify.createShowQueue();
         this.handleChangeColor = this.handleChangeColor.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
     state = {
         products : [],
+        messages : ''
     }
 
     componentDidMount(){
@@ -56,12 +59,23 @@ class List extends Component {
                });
            });
        }else if(target.name === 'quantity'){
-           axios.get(`shoping-cart/update-quantity/${id}?newQuantity=${target.value}`)
-           .then((response) => {
-               this.setState({
-                   products : response.data.products
-               });
-           });
+           if(target.value <= 0){
+            this.show(`Số lượng không hợp lệ!`, 'error', 1000);
+           }else{
+            axios.get(`shoping-cart/update-quantity/${id}?newQuantity=${target.value}`)
+            .then((response) => {
+                 if(response.data.status === 200){
+                     this.setState({
+                         products : response.data.products
+                     });
+                     this.show('Cập nhật thành công !', 'success', 1000);
+                 }else if(response.data.status === 502){
+                    this.show(`${response.data.messages} !`, 'error', 1000);
+                 }else{
+                    this.show(`Loading... !`, 'error', 1000);
+                 }
+            });
+           }
        }
    }
 
@@ -132,6 +146,7 @@ class List extends Component {
 		if(list !== null){
             return (
                 <div className="container">
+                    <Notifications />
                     <div className="check-out">
                         <h1>Checkout</h1>
                         <table >
