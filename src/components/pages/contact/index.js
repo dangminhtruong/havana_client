@@ -9,12 +9,14 @@ import SidePanel from './sidePannel';
 import Messages from './messages';
 import Profile from './profile';
 import $ from 'jquery';
+import { fetchMessage } from '../../../helpers/fetchMessage';
 
 class ChatBox extends Component {
     constructor() {
         super();
         this.handleSentMessage = this.handleSentMessage.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        fetchMessage((err, data) => { this.setState({ messages : data.messages.messages }) });
     }
 
     state = {
