@@ -8,21 +8,43 @@ class SidePanel extends Component {
 
         if(this.props.staff.length !== 0){
             onlineStaffs = this.props.staff.map((staff) => {
+                if(staff._id !== this.props.user._id){
+                    return (
+                        <li className="contact active" onClick = { () => this.props.fetch(staff._id) } key={staff._id}>
+                            <div className="wrap">
+                                <span className="contact-status busy"></span>
+                                <img src= { `${config.BASE_API_URL}img/${staff.avata}` } alt="" />
+                                <div className="meta">
+                                    <p className="name">{staff.username}</p>
+                                    <p className="preview">Đang online...</p>
+                                </div>
+                            </div>
+                        </li>
+                    );
+                }
                 return (
-                    <li className="contact active" onClick = { () => this.props.fetch(staff._id) } key={staff._id}>
+                    <li className="contact active">
                         <div className="wrap">
-                            <span className="contact-status busy"></span>
-                            <img src= { `${config.BASE_API_URL}img/${staff.avata}` } alt="" />
                             <div className="meta">
-                                <p className="name">{staff.username}</p>
-                                <p className="preview">Đang online...</p>
+                                <p className="name">Hiện không có nhân viên online</p>
                             </div>
                         </div>
                     </li>
                 );
             });
+        }else{
+            onlineStaffs = (
+               
+                    <li className="contact active">
+                        <div className="wrap">
+                            <div className="meta">
+                                <p className="name">Hiện không có nhân viên online</p>
+                            </div>
+                        </div>
+                    </li>
+               
+            )
         }
-
         return (
             <div id="sidepanel">
                         <div id="profile">
