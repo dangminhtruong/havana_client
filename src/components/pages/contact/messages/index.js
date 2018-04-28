@@ -15,7 +15,7 @@ class Messages extends Component {
                    : 
                    <li className="sent" key={ message._id }>
                     <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-                    <p>{ message.message }</p>
+                    <p style={{ float : 'left' }}>{ message.message }</p>
                    </li> 
                 )
             });
