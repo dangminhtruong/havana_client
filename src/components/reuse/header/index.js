@@ -29,16 +29,16 @@ class Header extends Component {
 		if(this.state.user){
 			user = (
 				<p className="log">
-					<NavLink to="/profile" exact>Hi !</NavLink>
-					<span> </span><NavLink to="/" exact>
+					<NavLink to="/profile">Hi !</NavLink>
+					<span> </span><NavLink to="/profile">
 					<span className="glyphicon glyphicon-user"></span> { this.state.user.username }</NavLink>
 				</p>
 			)
 		}else{
 			user =  (
 				<p className="log">
-					<NavLink to="/login" exact>Login</NavLink>
-					<span>or</span><NavLink to="/signup" exact>Signup</NavLink>
+					<NavLink to="/login">Login</NavLink>
+					<span>or</span><NavLink to="/signup">Signup</NavLink>
 				</p>
 			)
 		}
@@ -107,7 +107,7 @@ class Header extends Component {
 						<div className="col-sm-8 h_menu4">
 							<ul className="memenu skyblue">
 								<li className=" grid"><NavLink to="/" exact>Home</NavLink></li>
-								<li><a href="/">Men</a>
+								<li><a>Men</a>
 									<div className="mepanel">
 										<div className="row">
 											<div className="col3">
@@ -130,7 +130,7 @@ class Header extends Component {
 										</div>
 									</div>
 								</li>
-								<li className="grid"><a href="/">	Women</a>
+								<li className="grid"><a>Women</a>
 									<div className="mepanel">
 										<div className="row">
 											<div className="col3">
@@ -152,7 +152,7 @@ class Header extends Component {
 										</div>
 									</div>
 								</li>
-								<li><a href="typo.html">Blog</a></li>
+								<li><a href="/">Blog</a></li>
 								<li><NavLink className="color6" to="/chat" exact>Chat with us</NavLink></li>
 							</ul>
 						</div>

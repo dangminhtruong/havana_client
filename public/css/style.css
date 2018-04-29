@@ -2637,3 +2637,26 @@ h1.typo1 {
 #frame .content .message-input .wrap button:focus {
   outline: none;
 }
+
+#profile-image1 {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #03b1ce;
+}
+.changeAvata{
+  font-size: 10px;
+}
+
+.donHang {
+  font-family: 'Lobster', cursive;
+  text-align: left;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-bottom: 1px solid black;
+}
+.history{
+  margin-top: 5vh;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
