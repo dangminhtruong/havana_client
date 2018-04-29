@@ -6,8 +6,6 @@ class Profile extends Component {
     render() {
         return (
             <div className="contact-profile">
-                <img src= { `${config.BASE_API_URL}img/${this.props.user.avata}` } alt="" />
-                <p>{ this.props.user.username }</p>
                 <div className="social-media">
                     <i className="fa fa-facebook" aria-hidden="true"></i>
                     <i className="fa fa-twitter" aria-hidden="true"></i>
@@ -16,7 +14,6 @@ class Profile extends Component {
             </div>
         )
     }
-
 }
 
 export default Profile;

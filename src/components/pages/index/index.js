@@ -7,6 +7,9 @@ import Header from '../../reuse/header';
 import Footer from '../../reuse/footer';
 import Notifications, {notify} from 'react-notify-toast';
 import { subscribeToProduct } from '../../../helpers/subscribeToProduct';
+import openSocket from 'socket.io-client';
+import config from '../../../config';
+const  socket = openSocket(`${config.BASE_API_URL}`);
 
 class Index extends Component {
 
