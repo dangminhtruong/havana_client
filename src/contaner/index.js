@@ -8,6 +8,7 @@ import Signup from '../components/pages/signup';
 import Checkout from '../components/pages/checkout';
 import Aux from '../hocs/Aux';
 import ChatBox from '../components/pages/contact';
+import Profile from '../components/pages/profile'
 
 class Container extends Component {
 	render() {
@@ -20,6 +21,7 @@ class Container extends Component {
 				<Route path="/signup" exact component={Signup} />
 				<Route path="/checkout" exact component={Checkout} />
 				<Route path="/chat" exact component={ChatBox} />
+				<Route path="/profile" exact component={Profile} />
 			</Aux>
 		);
 	}
