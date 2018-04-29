@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class History extends Component {
     render() {
-        console.log(this.props.bills);
         let item = null;
         if (this.props.bills.length !== 0) {
             item = this.props.bills.map((bill, key) => {
