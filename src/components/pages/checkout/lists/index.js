@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import config from '../../../../config';
 import { Link } from 'react-router-dom';
 import axios from '../../../../axios';
+import Notifications, {notify} from 'react-notify-toast';
 
 class List extends Component {
 
@@ -9,6 +10,7 @@ class List extends Component {
         super();
         this.handleChangeColor = this.handleChangeColor.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.show = notify.createShowQueue();
     }
 
     state = {
@@ -56,12 +58,21 @@ class List extends Component {
                });
            });
        }else if(target.name === 'quantity'){
-           axios.get(`shoping-cart/update-quantity/${id}?newQuantity=${target.value}`)
-           .then((response) => {
-               this.setState({
-                   products : response.data.products
-               });
-           });
+           if(target.value < 1){
+            this.show('Số lượng không hợp lệ', 'error', 2000);
+           }else{
+            axios.get(`shoping-cart/update-quantity/${id}?newQuantity=${target.value}`)
+            .then((response) => {
+                if(response.data.status === 200){
+                     this.setState({
+                         products : response.data.products
+                     });
+                     this.show('Cập nhật thành công !', 'success', 2000);
+                }else{
+                     this.show(`${response.data.messages}`, 'error', 2000);
+                }
+            });
+           }
        }
    }
 
@@ -96,6 +107,7 @@ class List extends Component {
  
              return (
                  <tr key={item.product_id}>
+                 <Notifications />
                      <td className="ring-in">
                          <Link to ={ `/details/${item.product_id}`} className="at-in">
                              <img src= { `${config.BASE_API_URL}img/${item.product_img}` } className="img-responsive" alt=""/>
