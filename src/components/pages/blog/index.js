@@ -41,7 +41,9 @@ class Blog extends Component {
                                 className="img-responsive" alt="" style={{ height : '150px' }}/>
                                 </div>    
                                 <div className="col-md-9">
-                                    <div className="col-md-12" style = {{  textAlign : 'left' }}>{ item.content }</div>
+                                    <div className="col-md-12" style = {{  textAlign : 'left', overflowY : 'hidden', marginBottom : '3vh', textOverflow : 'ellipsis', maxHeight : '14vh' }}>
+                                     <p dangerouslySetInnerHTML={{__html: item.content }} />
+                                    </div>
                                     <div className="col-md-12"> 
                                     <NavLink className="btn btn-primary" to ={ `/post/${item._id}`} exact style={{ float : 'left', backgroundColor: '#52d0c4', borderColor: '#52d0c4' }}>
                                         <span>Xem thêm </span>
