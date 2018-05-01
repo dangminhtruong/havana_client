@@ -152,7 +152,7 @@ class Header extends Component {
 										</div>
 									</div>
 								</li>
-								<li><a href="/">Blog</a></li>
+								<li><NavLink className="color6" to="/blog" exact>Blog</NavLink></li>
 								<li><NavLink className="color6" to="/chat" exact>Chat with us</NavLink></li>
 							</ul>
 						</div>
