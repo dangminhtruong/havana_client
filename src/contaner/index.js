@@ -9,6 +9,8 @@ import Checkout from '../components/pages/checkout';
 import Aux from '../hocs/Aux';
 import ChatBox from '../components/pages/contact';
 import Profile from '../components/pages/profile'
+import Blog from '../components/pages/blog';
+import Post from '../components/pages/post';
 
 class Container extends Component {
 	render() {
@@ -22,6 +24,8 @@ class Container extends Component {
 				<Route path="/checkout" exact component={Checkout} />
 				<Route path="/chat" exact component={ChatBox} />
 				<Route path="/profile" exact component={Profile} />
+				<Route path="/blog" exact component={Blog} />
+				<Route path="/post/:id" exact component={Post} />
 			</Aux>
 		);
 	}
