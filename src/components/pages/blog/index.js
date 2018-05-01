@@ -41,7 +41,7 @@ class Blog extends Component {
                                 className="img-responsive" alt="" style={{ height : '150px' }}/>
                                 </div>    
                                 <div className="col-md-9">
-                                    <div className="col-md-12" style = {{  textAlign : 'left', overflowY : 'hidden', marginBottom : '3vh', textOverflow : 'ellipsis', maxHeight : '14vh' }}>
+                                    <div className="col-md-12" style = {{  textAlign : 'left', overflowY : 'hidden', overflowX : 'hidden', marginBottom : '3vh', textOverflow : 'ellipsis', maxHeight : '14vh' }}>
                                      <p dangerouslySetInnerHTML={{__html: item.content }} />
                                     </div>
                                     <div className="col-md-12"> 
