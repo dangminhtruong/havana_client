@@ -53,7 +53,7 @@ class Checkout extends Component {
             { 
                 (this.state.show === 'items') 
                 ? <List user = { this.state.user } switchShow = { this.switchShow }/> 
-                : (this.state.show === 'form') ? <Form switchShow = { this.switchShow }/> 
+                : (this.state.show === 'form') ? <Form switchShow = { this.switchShow } user={this.state.user}/> 
                 : <Receipt/>
             }
             <Footer/>
