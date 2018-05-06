@@ -121,6 +121,7 @@ class Details extends Component {
                     background: color.code,
                 }
 
+               if(color.quantity !== 0){
                 return (
                     <label className="containerr" key={ index  }>
                             <input type="radio" 
@@ -129,14 +130,17 @@ class Details extends Component {
                             <span className="checkmark" style={ style }></span>
                     </label>
                 );
+               }
             });
           }
 
           if(! _.isEmpty(this.state.currentInfor.size)){
             sizes = this.state.currentInfor.size.map((size, index) => {
-                return (
-                    <option key={index} value={size.code} >{ size.code }</option>
-                )
+                if(size.quantity !== 0){
+                    return (
+                        <option key={index} value={size.code} >{ size.code }</option>
+                    )
+                }
             });
           }
 

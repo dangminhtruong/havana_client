@@ -969,6 +969,13 @@ a.at-in {
   border: 1px solid #000;
   border-radius: 0 !important;
 }
+.custom2{
+  border: 1px solid #EEE;
+  border-radius: 0 !important;
+  border-radius: 0 !important;
+  padding: 0.5em !important;
+  margin: 0.5em 0 !important;
+}
 .check{
 	width:6%;
 }
