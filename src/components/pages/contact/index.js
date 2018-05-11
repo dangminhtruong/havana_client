@@ -136,7 +136,7 @@ class ChatBox extends Component {
                     <div className="container" style={{ minHeight: '60vh', marginTop: '10vh' }}>
                         <div className="check-out">
                             <div className="text-xs-center">
-                                <h1 className="display-3">Login Require!</h1>
+                                <h1 className="display-3">Yêu cầu đăng nhập!</h1>
                                 <p className="lead">
                                     <i>Vui lòng đăng nhập để tiếp tục</i> <br />
                                 </p>

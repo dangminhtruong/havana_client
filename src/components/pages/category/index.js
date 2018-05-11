@@ -134,7 +134,7 @@ class Category extends Component {
                 <Notifications />
                 <div className="products">
                     <div className="container">
-                        <h1>Products</h1>
+                        <h1>Sản phẩm</h1>
                         <div className="col-md-9">
                             <div className="content-top1">
                                     {lineOne}

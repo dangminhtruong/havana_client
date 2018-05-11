@@ -148,17 +148,17 @@ class List extends Component {
                 <div className="container">
                     <Notifications />
                     <div className="check-out">
-                        <h1>Checkout</h1>
+                        <h1>Giỏ hàng</h1>
                         <table >
                             <thead>
                                 <tr>
-                                    <th>Item</th>
-                                    <th>Qty</th>
-                                    <th>Size</th>
-                                    <th>Color</th>
-                                    <th>Prices</th>
-                                    <th>Subtotal</th>
-                                    <th>Action</th>
+                                    <th>STT</th>
+                                    <th>Số Lượng</th>
+                                    <th>Kích cỡ</th>
+                                    <th>Màu sắc</th>
+                                    <th>Giá</th>
+                                    <th>Thành tiền</th>
+                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -166,8 +166,8 @@ class List extends Component {
                             </tbody>
                         </table>
                         { (this.props.user) ? 
-                        <button onClick = { () => this.props.switchShow('form') } className="to-buy">PROCEED TO BUY</button> : 
-                        <Link to="/login" className="to-buy">LOGIN TO BUY</Link> }
+                        <button onClick = { () => this.props.switchShow('form') } className="to-buy">Tiếp tục</button> : 
+                        <Link to="/login" className="to-buy">Đăng nhập để tiếp tục</Link> }
                         <div className="clearfix"> </div>
                     </div>
                 </div>
@@ -177,7 +177,7 @@ class List extends Component {
             <div className="container" style={ { minHeight : '60vh', marginTop : '10vh' } }>
                 <div className="check-out">
                     <div className="text-xs-center">
-                    <h1 className="display-3">EMPTY CART!</h1>
+                    <h1 className="display-3">Giỏ hàng trống!</h1>
                     <p className="lead">
                         <i>Bạn chưa có sản phẩm nào trong giỏ hàng</i> <br/>
                     </p>

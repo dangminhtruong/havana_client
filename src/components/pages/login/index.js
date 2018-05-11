@@ -59,28 +59,30 @@ class Login extends Component {
                     menu={this.state.category} />
                 <div className="account">
                     <div className="container">
-                        <h1>Account</h1>
+                        <h1>Đăng nhập</h1>
                         <div className="account_grid">
                             <div className="col-md-6 login-right">
                                 <form>
-                                    <span>Email Address</span>
+                                    <span>Email</span>
                                     <input type="text" autoComplete='' value={this.state.username} onChange={this.setUserName.bind(this)} />
-                                    <span>Password</span>
+                                    <span>Mật khẩu</span>
                                     <input type="password" style={{ width: '96%', padding: '10px', }} autoComplete='' value={this.state.password} onChange={this.setPassWord.bind(this)} />
                                     {(this.state.showAlert) ?
                                         <small id="emailHelp" className="form-text text-muted">
-                                            <p className="alertLogin">Invalid username or password!</p>
+                                            <p className="alertLogin">Sai thông tin đăng nhập!</p>
                                         </small> : null}
                                     <div className="word-in">
-                                        <a className="forgot" >Forgot Your Password? </a>
-                                        <button type="button" onClick={this.login}>Login</button>
+                                        <a className="forgot" >Quên mật khẩu ? </a>
+                                        <button type="button" onClick={this.login}>Đặng nhập</button>
                                     </div>
                                 </form>
                             </div>
                             <div className="col-md-6 login-left">
-                                <h4>NEW CUSTOMERS</h4>
-                                <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-                                <NavLink to="/signup" className="acount-btn" exact>Create an Account</NavLink>
+                                <h4>Bạn là khách hàng mới ?</h4>
+                                <p>Nếu chưa có tài khoản, vui lòng tạo mới tài khoản của bạn.<br/>
+                                   Đăng ký tài khoản thành viên sẽ tăng quyền lợi cũng như hưởng nhiều khuyến mãi hơn. <br/>
+                                   Lưu ý, bằng việc nhấn vào tạo tài khoản, bạn đã đống ý nhưng điều khoản sử dụng đối với website cửa hàng...</p>
+                                <NavLink to="/signup" className="acount-btn" exact>Tạo mới tài khoản</NavLink>
                             </div>
                             <div className="clearfix"> </div>
                         </div>

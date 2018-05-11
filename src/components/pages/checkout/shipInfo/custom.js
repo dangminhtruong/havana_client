@@ -8,7 +8,7 @@ class CustomShip extends Component {
                     <span>Ghi chú đơn hàng</span>
                     <textarea rows="8" name="note" style={style} onChange={this.handleChange} />
                     <div style={{ float: 'left' }}>
-                        <button onClick={this.submitOrder} className="to-buy">SUBMIT</button>
+                        <button onClick={this.submitOrder} className="to-buy">Hoàn tất</button>
                         <button onClick={() => this.props.switchShow('items')}
                             className="btn btn-link"
                             style={{ textDecoration: 'none' }}>

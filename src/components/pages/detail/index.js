@@ -184,8 +184,8 @@ class Details extends Component {
                                 <li><a ><i className="glyphicon glyphicon-star"> </i></a></li>
                             </ul>
                             <div className="review">
-                                <a > 3 reviews </a>/    
-                                <a >  Write a review</a>
+                                <a > 3 đánh giá </a>/    
+                                <a >  Viết đánh gía</a>
                             </div>
                             <div className="clearfix"> </div>
                             </div>
@@ -193,23 +193,23 @@ class Details extends Component {
                                 ${ (this.state.currentInfor.promo_price) ? this.state.currentInfor.promo_price : this.state.currentInfor.unit_price }
                             </label>
                             <div className="available">
-                            <h6>Available Options :</h6>
+                            <h6>Lựa chọn sản phẩm</h6>
                             <ul>
                                 <li>
-                                    Size:
+                                    Kích cỡ:
                                     <select value={this.state.size} onChange={this.handleChangeSize}>
                                         { sizes }
                                     </select>
                                 </li>
                                 <li>
-                                    Color:
+                                    Màu sắc:
                                    
                                        { colors }
                                     
                                 </li>
                             </ul>
                             </div>
-                            <button className="cart item_add" onClick={ () => this.addToCart(this.props.match.params.id) }>Add to cart</button>
+                            <button className="cart item_add" onClick={ () => this.addToCart(this.props.match.params.id) }>Thêm giỏ hàng</button>
                         </div>
                     </div>
                     <div className="clearfix"> </div>
