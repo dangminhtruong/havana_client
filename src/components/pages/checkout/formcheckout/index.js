@@ -106,7 +106,7 @@ class Form extends Component {
 		return (
 			<div className="container" >
 				<div className="register">
-					<h1>Checkout</h1>
+					<h1>Thanh toán</h1>
 					{(this.state.shipTo) ? defaultShip : customShip}
 					<div className="col-md-6 register-bottom-grid">
 						<div className="mation">

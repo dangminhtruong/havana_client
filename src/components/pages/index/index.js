@@ -90,7 +90,7 @@ class Index extends Component {
                     <div className="content">
                         <div className="container">
                             <div className="content-top">
-                                <h1>New Products</h1>
+                                <h1>Sản phẩm mới</h1>
                                 <div className="content-top1">
                                     { lineOneNews }
                                     <div className="clearfix"> </div>
@@ -104,7 +104,7 @@ class Index extends Component {
 
                          <div className="container">
                             <div className="content-top">
-                                <h1>Feature Products</h1>
+                                <h1>Sản phẩm nổi bật</h1>
                                 <div className="content-top1">
                                     { lineThreeFeature }
                                     <div className="clearfix"> </div>

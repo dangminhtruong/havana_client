@@ -38,7 +38,7 @@ class Header extends Component {
 			user =  (
 				<p className="log">
 					<NavLink to="/login">Login</NavLink>
-					<span>or</span><NavLink to="/signup">Signup</NavLink>
+					<span>~</span><NavLink to="/signup">Signup</NavLink>
 				</p>
 			)
 		}
@@ -91,7 +91,7 @@ class Header extends Component {
 										<span className="simpleCart_total"></span></div>
 									<img src="/images/cart.png" alt="" /></h3>
 								</NavLink>
-								<p><NavLink to="/checkout" className="simpleCart_empty" exact>{ this.props.cart } items</NavLink></p>
+								<p><NavLink to="/checkout" className="simpleCart_empty" exact>{ this.props.cart } sản phẩm</NavLink></p>
 
 							</div>
 							<div className="clearfix"> </div>
@@ -107,12 +107,12 @@ class Header extends Component {
 						<div className="col-sm-8 h_menu4">
 							<ul className="memenu skyblue">
 								<li className=" grid"><NavLink to="/" exact>Home</NavLink></li>
-								<li><a>Men</a>
+								<li><a>Thời trang nam</a>
 									<div className="mepanel">
 										<div className="row">
 											<div className="col3">
 												<div className="h_nav">
-													<h4>Men Fashion</h4>
+													<h4>Thời trang nam</h4>
 													<ul>
 														{ menCategory }
 													</ul>
@@ -120,7 +120,7 @@ class Header extends Component {
 											</div>
 											<div className="col3">
 												<div className="h_nav">
-													<h4>Footwear</h4>
+													<h4>Chất lượng đảm bảo</h4>
 													<ul>
 														<li><img src="https://p.w3layouts.com/demos/n_air/web/images/menu3.jpg"/></li>
 													</ul>
@@ -130,12 +130,12 @@ class Header extends Component {
 										</div>
 									</div>
 								</li>
-								<li className="grid"><a>Women</a>
+								<li className="grid"><a>Thời trang nữ</a>
 									<div className="mepanel">
 										<div className="row">
 											<div className="col3">
 												<div className="h_nav">
-													<h4>All Clothing</h4>
+													<h4>Thời trang nữ</h4>
 													<ul>
 														{womenCategory}
 													</ul>
@@ -143,7 +143,7 @@ class Header extends Component {
 											</div>
 											<div className="col3">
 												<div className="h_nav">
-													<h4>Footwear</h4>
+													<h4>Nhiều kiểu dáng</h4>
 													<ul>
 														<li><img src="https://p.w3layouts.com/demos/n_air/web/images/menu3.jpg"/></li>
 													</ul>
@@ -152,8 +152,8 @@ class Header extends Component {
 										</div>
 									</div>
 								</li>
-								<li><NavLink className="color6" to="/blog" exact>Blog</NavLink></li>
-								<li><NavLink className="color6" to="/chat" exact>Chat with us</NavLink></li>
+								<li><NavLink className="color6" to="/blog" exact>Tin tức</NavLink></li>
+								<li><NavLink className="color6" to="/chat" exact>Nhân viên tư vấn</NavLink></li>
 							</ul>
 						</div>
 						<div className="col-sm-2 search">

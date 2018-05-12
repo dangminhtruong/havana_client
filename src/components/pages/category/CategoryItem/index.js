@@ -14,7 +14,7 @@ class CategoryItem extends Component {
 					<div className="price">
 						<h5 className="item_price">${ (this.props.infor.promo_price !== 0 ) ? this.props.infor.promo_price : this.props.infor.unit_price }</h5>
 						<Link to={`/details/${this.props.infor._id}`}>
-							<button type="button" className="item_add">View more</button>
+							<button type="button" className="item_add">Xem thêm</button>
 						</Link>
 						<div className="clearfix"> </div>
 					</div>

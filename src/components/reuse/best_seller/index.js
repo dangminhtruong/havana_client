@@ -26,7 +26,7 @@ class BestSeller extends Component {
 
 		return (
 			<div className="product-bottom">
-				<h3 className="cate">Best Sellers</h3>
+				<h3 className="cate">Nổi bật</h3>
 				{ bestSale }	
 			</div>
 		);

@@ -15,7 +15,7 @@ class ProductItem extends Component {
 					<div className="price">
 						<h5 className="item_price">${ price }</h5>
 						<Link to={`/details/${this.props.infor._id}`}>
-							<button type="button" className="item_add">View more</button>
+							<button type="button" className="item_add">Xem thêm</button>
 						</Link>
 						<div className="clearfix"> </div>
 					</div>

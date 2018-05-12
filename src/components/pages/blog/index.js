@@ -64,7 +64,7 @@ class Blog extends Component {
                     menu={this.state.category} />
                 <div className="account">
                     <div className="page-header">
-                        <h1>Blogs</h1>
+                        <h1>Tin tức</h1>
                     </div>
                     { list }
                 </div>

@@ -49,7 +49,6 @@ class Signup extends Component {
         this.setState({
           [name]: value
         });
-        console.log(this.state);
     }
 
     validateEmail =  (email) => {
@@ -104,15 +103,15 @@ class Signup extends Component {
                 <Notifications />
                 <div className="container">
                     <div className="register">
-                        <h1>Register</h1>
+                        <h1>Đăng ký</h1>
                             <form> 
                                 <div className="col-md-6  register-top-grid">
                                     <div className="mation">
-                                        <span>Your Name</span>
+                                        <span>Tên đăng nhập</span>
                                         <input type="text" name="userName" onChange={this.handleInputChange}/> 
                                         { (this.state.nullName) ?
                                         <small id="emailHelp" className="form-text text-muted">
-                                                <p className="alertLogin">Your name is require!</p>
+                                                <p className="alertLogin">Tên đăng nhập không để trống!</p>
                                         </small> : null }
                                         <span>Address</span>
                                         <input type="text" name="address" onChange={this.handleInputChange}/> 
@@ -120,29 +119,29 @@ class Signup extends Component {
                                         <small id="emailHelp" className="form-text text-muted">
                                                 <p className="alertLogin">Your address is require!</p>
                                         </small> : null }
-                                        <span>Your phone number</span>
+                                        <span>Số điện thoại</span>
                                         <input type="text" name="phone" onChange={this.handleInputChange}/> 
                                         { (this.state.nullPhone) ?
                                         <small id="emailHelp" className="form-text text-muted">
-                                                <p className="alertLogin">Your phone is require!</p>
+                                                <p className="alertLogin">Không để trống số điện thoại!</p>
                                         </small> : null }
                                     </div>
                                     <div className="clearfix"> </div>
                                     <span className="news-letter" onClick={ this.register }>
-                                        <label className="acount-btn">Sign Up</label>
+                                        <label className="acount-btn">Đăng ký</label>
                                     </span>
                                     </div>
                                     <div className=" col-md-6 register-bottom-grid">
                                             <div className="mation">
-                                                <span>Email Address</span>
+                                                <span>Email</span>
                                                 <input type="text" name="email" onChange={this.handleInputChange}/> 
                                                 { (this.state.nullEmail) ?
                                                 <small id="emailHelp" className="form-text text-muted">
-                                                        <p className="alertLogin">Your email is require!</p>
+                                                        <p className="alertLogin">Địa chỉ email không để trống!</p>
                                                 </small> : null }
                                                 { (this.state.invalidEmail) ?
                                                 <small id="emailHelp" className="form-text text-muted">
-                                                        <p className="alertLogin">This seem is not an email, right ?</p>
+                                                        <p className="alertLogin">Đây không phải là một email ?</p>
                                                 </small> : null }
                                                 <span>Password</span>
                                                 <input type="password" name="password" 
@@ -150,15 +149,15 @@ class Signup extends Component {
                                                     onChange={this.handleInputChange}/>
                                                 { (this.state.nullPass) ?
                                                 <small id="emailHelp" className="form-text text-muted">
-                                                        <p className="alertLogin">Your password is require!</p>
+                                                        <p className="alertLogin">Mật khẩu!</p>
                                                 </small> : null }
-                                                <span>Confirm Password</span>
+                                                <span>Xác nhận mât khẩu</span>
                                                 <input type="password" name="repass" 
                                                     style={ { width: '100%',padding: '0.5em', border: '1px solid #EEE', margin: '0.5em 0' } } 
                                                     onChange={this.handleInputChange}/>
                                                 { (this.state.notMatchPass) ?
                                                     <small id="emailHelp" className="form-text text-muted">
-                                                        <p className="alertLogin">Retype password not matched!</p>
+                                                        <p className="alertLogin">Gõ lại mật khẩu không chính xác!</p>
                                                     </small> : null }
                                             </div>
                                     </div>
