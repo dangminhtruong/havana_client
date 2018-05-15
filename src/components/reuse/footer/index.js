@@ -8,14 +8,11 @@ class Footer extends Component {
 				<div className="container">
 					<div className="footer-top">
 						<div className="col-md-8 top-footer">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.91163207516!2d2.3470599!3d48.85885894999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C+France!5e0!3m2!1sen!2sin!4v1436340519910" title="map"></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238373.52527856285!2d105.8045042476706!3d21.00921288016024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a8d23cf703b1%3A0x7ba8444601994739!2zSOG7jWMgVmnhu4duIE7DtG5nIE5naGnhu4dwIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1526394235448" title="map"></iframe>
 						</div>
 						<div className="col-md-4 top-footer1">
-							<h2>Newsletter</h2>
-							<form>
-								<input type="text"/>
-								<input type="submit" value={ 'SUBSCRIBE' }/>
-					        </form>
+							<h2>Hotline</h2>
+							<h2 style={{ color : 'black' }}>01292007776</h2>
 			            </div>
 						<div className="clearfix"> </div>	
 		            </div>
