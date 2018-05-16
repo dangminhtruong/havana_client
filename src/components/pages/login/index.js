@@ -73,7 +73,7 @@ class Login extends Component {
                                         </small> : null}
                                     <div className="word-in">
                                         <a className="forgot" >Quên mật khẩu ? </a>
-                                        <button type="button" onClick={this.login}>Đặng nhập</button>
+                                        <button type="button" onClick={this.login}>Đăng nhập</button>
                                     </div>
                                 </form>
                             </div>
