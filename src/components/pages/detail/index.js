@@ -51,6 +51,7 @@ class Details extends Component {
         $('html, body').animate({scrollTop:0}, 'slow');
          axios.get(`/product-data/${this.props.match.params.id}`)
         .then((response) => {
+            console.log(response.data);
             this.setState({
                 currentInfor : response.data.product,
                 related : response.data.related_product,
