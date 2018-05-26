@@ -9,6 +9,7 @@ import Aux from '../../../hocs/Aux';
 import axios from '../../../axios';
 import config from '../../../config';
 import Related from './relatedItem';
+import Comments from './comments';
 import Notifications, {notify} from 'react-notify-toast';
 import _ from 'lodash';
 import $ from 'jquery';
@@ -154,7 +155,6 @@ class Details extends Component {
             });
           }
 
-
         return (
             
             <Aux>
@@ -218,6 +218,7 @@ class Details extends Component {
                             { relates }
                         <div className="clearfix"> </div>
                     </div>
+                    <Comments comments = { this.state.currentInfor.comment}/>
                 </div>
                 <div className="col-md-3 product-bottom">
                         <RightCategory/>
@@ -232,8 +233,7 @@ class Details extends Component {
             <Footer/>
             </Aux>
         )
-    }
-                                    
+    }                                
 }
                                     
 export default Details;

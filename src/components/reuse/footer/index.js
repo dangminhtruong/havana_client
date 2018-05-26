@@ -20,53 +20,37 @@ class Footer extends Component {
 				<div className="footer-bottom">
 					<div className="container">
 						<div className="col-sm-3 footer-bottom-cate">
-							<h6>Categories</h6>
+							<h6>Diamonds Fashion</h6>
 							<ul>
-								<li><a href="/">Curabitur sapien</a></li>
-								<li><a href="/">Dignissim purus</a></li>
-								<li><a href="/">Tempus pretium</a></li>
-								<li><a href="/">Dignissim neque</a></li>
-								<li><a href="/">Ornared id aliquet</a></li>
-
+								<li><a href="/">Tốc độ, hiệu năng cáo</a></li>
+								<li><a href="/">Áp dụng những công nghệ mới nhất</a></li>
 							</ul>
 						</div>
 						<div className="col-sm-3 footer-bottom-cate">
-							<h6>Feature Projects</h6>
+							<h6>Thông tin liên hệ</h6>
 							<ul>
-								<li><a href="/">Curabitur sapien</a></li>
-								<li><a href="/">Dignissim purus</a></li>
-								<li><a href="/">Tempus pretium</a></li>
-								<li><a href="/">Dignissim neque</a></li>
-								<li><a href="/">Ornared id aliquet</a></li>
-
+								<li><a href="/">01292007776</a></li>
+								<li><a href="/">xdangminhtruongx@gmail.com</a></li>
 							</ul>
 						</div>
 						<div className="col-sm-3 footer-bottom-cate">
-							<h6>Top Brands</h6>
+							<h6>Công nghệ</h6>
 							<ul>
-								<li><a href="/">Curabitur sapien</a></li>
-								<li><a href="/">Dignissim purus</a></li>
-								<li><a href="/">Tempus pretium</a></li>
-								<li><a href="/">Dignissim neque</a></li>
-								<li><a href="/">Ornared id aliquet</a></li>
-								<li><a href="/">Ultrices id du</a></li>
-								<li><a href="/">Commodo sit</a></li>
-
+								<li><a href="/">Nodejs</a></li>
+								<li><a href="/">MongoDB</a></li>
+								<li><a href="/">Reactjs/Vuejs</a></li>
+								<li><a href="/">Docker</a></li>
 							</ul>
 						</div>
 						<div className="col-sm-3 footer-bottom-cate cate-bottom">
-							<h6>Our Address</h6>
+							<h6>Địa chỉ</h6>
 							<ul>
-								<li>Aliquam metus  dui. </li>
-								<li>orci, ornareidquet</li>
-								<li> ut,DUI.</li>
-								<li>nisi, dignissim</li>
-								<li>gravida at.</li>
-								<li className="phone">PH : 6985792466</li>
+								<li>Học viện nông nghiệp Việt Nam </li>
+								<li>Khoa CNTT - FITA</li>
 							</ul>
 						</div>
 						<div className="clearfix"> </div>
-						<p className="footer-className"> © 2015 Fashion Mania. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+						<p className="footer-className"> © Diamonds fashion | Design by <a href="https://github.com/dangminhtruong" target="_blank">Dang Minh Truong</a> </p>
 					</div>
 				</div>
 			</div>

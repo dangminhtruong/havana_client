@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import { NavLink } from 'react-router-dom';
 
 class RightCategory extends Component {
 	render() {
@@ -25,41 +26,15 @@ class RightCategory extends Component {
 			<div className=" rsidebar span_1_of_left">
 				<h3 className="cate">Categories</h3>
 				<ul className="menu-drop">
-					<li className="item1"><a >Nam </a>
-						<ul className="cute">
-							<li className="subitem1"><a href="single.html">Cute Kittens </a></li>
-							<li className="subitem2"><a href="single.html">Strange Stuff </a></li>
-							<li className="subitem3"><a href="single.html">Automatic Fails </a></li>
-						</ul>
+					<li className="item1"><NavLink to="/" exact>Home</NavLink>
 					</li>
-					<li className="item2"><a >Nữ </a>
-						<ul className="cute">
-							<li className="subitem1"><a href="single.html">Cute Kittens </a></li>
-							<li className="subitem2"><a href="single.html">Strange Stuff </a></li>
-							<li className="subitem3"><a href="single.html">Automatic Fails </a></li>
-						</ul>
+					<li className="item2"><a >Nam</a>
 					</li>
-					<li className="item3"><a >Trẻ em</a>
-						<ul className="cute">
-							<li className="subitem1"><a href="single.html">Cute Kittens </a></li>
-							<li className="subitem2"><a href="single.html">Strange Stuff </a></li>
-							<li className="subitem3"><a href="single.html">Automatic Fails</a></li>
-						</ul>
+					<li className="item3"><a >Nữ</a>
 					</li>
-					<li className="item4"><a >Phụ kiên</a>
-						<ul className="cute">
-							<li className="subitem1"><a href="single.html">Cute Kittens </a></li>
-							<li className="subitem2"><a href="single.html">Strange Stuff </a></li>
-							<li className="subitem3"><a href="single.html">Automatic Fails</a></li>
-						</ul>
-					</li>
-                            
-					<li className="item4"><a >Giày dép</a>
-						<ul className="cute">
-							<li className="subitem1"><a href="product.html">Cute Kittens </a></li>
-							<li className="subitem2"><a href="product.html">Strange Stuff </a></li>
-							<li className="subitem3"><a href="product.html">Automatic Fails </a></li>
-						</ul>
+					<li className="item4"><NavLink className="color6" to="/blog" exact>Tin tức</NavLink>
+					</li>  
+					<li className="item4"><NavLink className="color6" to="/chat" exact>Nhân viên tư vấn</NavLink>
 					</li>
 				</ul>
 			</div>
