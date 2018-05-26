@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import config from '../../../config';
+import axios from '../../../axios';
 
 class Comments extends Component {
+
     render() {
         let comments;
 
@@ -12,10 +14,10 @@ class Comments extends Component {
                     <li>
                         <div className="comment-main-level">
                             <div className="comment-avatar">
-                                <img  src={`${config.BASE_API_URL}img/${item.avata}.jpg`} alt="" /></div>
+                                <img  src={`${config.BASE_API_URL}img/${item.avata}`} alt="" /></div>
                             <div className="comment-box">
                                 <div className="comment-head">
-                                    <h6 className="comment-name by-author">
+                                    <h6 className="comment-name">
                                         <a href="http://creaticode.com/blog">{ item.user_name }</a>
                                     </h6>
                                     <span>{ item.createdOn }</span>
@@ -33,7 +35,7 @@ class Comments extends Component {
                                     return (
                                         <li key={ `reply${id}` }>
                                         <div className="comment-avatar">
-                                            <img  src={`${config.BASE_API_URL}img/${reply.avata}.jpg`} alt="" />
+                                            <img  src={`${config.BASE_API_URL}img/${reply.avata}`} alt="" />
                                         </div>
         
                                         <div className="comment-box">
@@ -58,12 +60,20 @@ class Comments extends Component {
             });
         }
 
-
-
         return (
             <div className="comments-container">
-                <h1>Comentarios</h1>
+                <h1>Bình luận</h1>
                 { comments }
+                <div className="form-group" style={{ textAlign : 'left' }}>
+                    <label htmlFor="comment">Viết bình luận:</label>
+                    <textarea className="form-control" rows="5" id="comment"
+                             value={this.props.comment} onChange={this.props.handleChangeComment}></textarea>
+                    <button type="button" className="btn btn-primary" 
+                            onClick = { () => this.props.handleComment() }
+                            style={{ marginTop : '2vh', backgroundColor : '#52D0C4' }}>
+                        Bình luận
+                    </button>
+                </div>
             </div>
         );
     }

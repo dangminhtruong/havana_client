@@ -30,7 +30,9 @@ class Details extends Component {
         category : [],
         bestSaller : [],
         color : '' ,
-        size : ''
+        size : '',
+        user : null,
+        comment : ''
     }
 
     addToCart =  (productId) => {
@@ -52,7 +54,6 @@ class Details extends Component {
         $('html, body').animate({scrollTop:0}, 'slow');
          axios.get(`/product-data/${this.props.match.params.id}`)
         .then((response) => {
-            console.log(response.data);
             this.setState({
                 currentInfor : response.data.product,
                 related : response.data.related_product,
@@ -61,8 +62,31 @@ class Details extends Component {
                 bestSaller : response.data.best_sales,
                 color : _.head(response.data.product.colors).code,
                 size :  _.head(response.data.product.size).code,
+                user : response.data.user
             });
         });
+    }
+
+    handleChangeComment = (event) => {
+        this.setState({comment: event.target.value});
+    }
+
+    handleComment = () => {
+        if(this.state.user){
+            axios.post(`/comment/add/${this.state.currentInfor._id}`, {
+                username : this.state.user.username,
+                avata : this.state.user.avata,
+                content : this.state.comment
+            })
+            .then((response) => {
+                this.setState({
+                    currentInfor : response.data.data,
+                    comment : ''
+                });
+            });
+        }else{
+            this.show('Vui lòng đăng nhập !', 'error', 2000);
+        }
     }
 
     componentWillReceiveProps(nextProps){
@@ -218,7 +242,10 @@ class Details extends Component {
                             { relates }
                         <div className="clearfix"> </div>
                     </div>
-                    <Comments comments = { this.state.currentInfor.comment}/>
+                    <Comments comments = { this.state.currentInfor.comment} 
+                               handleComment = { this.handleComment }
+                               handleChangeComment = { this.handleChangeComment}
+                               comment = { this.state.comment }/>
                 </div>
                 <div className="col-md-3 product-bottom">
                         <RightCategory/>
