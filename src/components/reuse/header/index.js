@@ -97,16 +97,11 @@ class Header extends Component {
 							<ul >
 								<li>
 									<select className="in-drop">
-										<option>English</option>
+										<option>Vietnamese</option>
 										<option>Japanese</option>
 										<option>French</option>
 									</select></li>
-								<li><select className="in-drop1">
-									<option>Dollar</option>
-									<option>Euro</option>
-									<option>Yen</option>
-								</select>
-								</li>
+								
 							</ul>
 						</div>
 						<div className="col-sm-4 logo">

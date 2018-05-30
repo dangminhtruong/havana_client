@@ -62,7 +62,7 @@ class Comments extends Component {
 
         return (
             <div className="comments-container">
-                <h1>Bình luận</h1>
+                <h1 id="comments">Bình luận</h1>
                 { comments }
                 <div className="form-group" style={{ textAlign : 'left' }}>
                     <label htmlFor="comment">Viết bình luận:</label>

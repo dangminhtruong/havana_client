@@ -15,7 +15,7 @@ class relatedItem extends Component {
 							{ this.props.infor.name}</Link>
 						</h3>
 					<div className="price">
-						<h5 className="item_price">${ (this.props.infor.promo_price) ? this.props.infor.promo_price : this.props.infor.unit_price }</h5>
+						<h5 className="item_price">{ (this.props.infor.promo_price) ? this.props.infor.promo_price : this.props.infor.unit_price } <u>vnđ</u></h5>
 						<Link to={`/details/${this.props.infor._id}`}>
 							<button type="button" className="item_add">Xem thêm</button>
 						</Link>

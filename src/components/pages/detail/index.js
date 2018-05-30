@@ -180,7 +180,6 @@ class Details extends Component {
           }
 
         return (
-            
             <Aux>
             <Header cart = {this.state.cartItems}
                     menu = { this.state.category }/>
@@ -210,12 +209,12 @@ class Details extends Component {
                             </ul>
                             <div className="review">
                                 <a > 3 đánh giá </a>/    
-                                <a >  Viết đánh gía</a>
+                                <a href="#comments"> bình luận</a>
                             </div>
                             <div className="clearfix"> </div>
                             </div>
                             <label className="add-to item_price">
-                                ${ (this.state.currentInfor.promo_price) ? this.state.currentInfor.promo_price : this.state.currentInfor.unit_price }
+                                { (this.state.currentInfor.promo_price) ? this.state.currentInfor.promo_price : this.state.currentInfor.unit_price } <u>vnđ</u>
                             </label>
                             <div className="available">
                             <h6>Lựa chọn sản phẩm</h6>

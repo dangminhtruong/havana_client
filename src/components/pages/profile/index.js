@@ -46,13 +46,10 @@ class Profile extends Component {
             });
         }
 
-    //---------------------------
-  
-       /*  $('#profile-image-upload').change(function(){
-            $('#submit_change_avata').click();
-        }); */
-  
-
+        logout = () => {
+            axios.get(`/logout/client/${this.state.user._id}`)
+            .then(this.props.history.push("/"));
+        }
 
     render() {
         return (
@@ -74,13 +71,19 @@ class Profile extends Component {
                             </div>
                         </div>
                         <div className="col-md-12">
-                            <p style= {{ float : 'left', marginTop : '5vh' }}>Họ tên: { this.state.user.username }</p>
+                            <p style= {{ float : 'left', marginTop : '5vh', textAlign : 'left' }}><b><i>Họ tên</i></b> :<br/> { this.state.user.username }</p>
                         </div>
                         <div className="col-md-12">
-                            <p style= {{ float : 'left', marginTop : '5vh' }}>Số điện thoại : { this.state.user.phone }</p>
+                            <p style= {{ float : 'left', marginTop : '5vh', textAlign : 'left' }}><b><i>Số điện thoại</i></b> :<br/> { this.state.user.phone }</p>
                         </div>
                         <div className="col-md-12">
-                            <p style= {{ float : 'left', marginTop : '5vh' }}>Địa chỉ: { this.state.user.address }</p>
+                            <p style= {{ float : 'left', marginTop : '5vh', textAlign : 'left' }}><b><i>Địa chỉ</i></b> :<br/> { this.state.user.address }</p>
+                        </div>
+                        <div className="col-md-12">
+                            <button type="button" style={{ float : 'left', marginTop : '5vh', marginBottom : '5vh', background : '#52d0c4' }} 
+                                    className='btn button' onClick={ this.logout }>
+                                Đăng xuất
+                            </button>
                         </div>
                     </div>
                     <div className="col-md-9">

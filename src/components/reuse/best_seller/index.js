@@ -17,7 +17,7 @@ class BestSeller extends Component {
 						<h6 className="best2">
 							<Link to ={ `/details/${item._id}` }>{ item.name }</Link>
 						</h6>
-						<span className=" price-in1"> ${ (item.promo_price !== 0) ? item.promo_price :  item.unit_price}</span>
+						<span className=" price-in1"> { (item.promo_price !== 0) ? item.promo_price :  item.unit_price} <u>vnđ</u></span>
 					</div>	
 					<div className="clearfix"> </div>
 				</div>

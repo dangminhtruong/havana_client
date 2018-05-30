@@ -13,7 +13,7 @@ class ProductItem extends Component {
 					</Link>
 					<h3> <Link to={`/details/${this.props.infor._id}`}>{ this.props.infor.name }</Link></h3>
 					<div className="price">
-						<h5 className="item_price">${ price }</h5>
+						<h5 className="item_price">{ price } <u>vnđ</u></h5>
 						<Link to={`/details/${this.props.infor._id}`}>
 							<button type="button" className="item_add">Xem thêm</button>
 						</Link>
