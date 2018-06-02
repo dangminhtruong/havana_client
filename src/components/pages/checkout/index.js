@@ -42,7 +42,7 @@ class Checkout extends Component {
         })
     }
 
-    
+
 
     render() {
        
